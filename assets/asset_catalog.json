@@ -1,0 +1,4103 @@
+{
+  "version": "1.0.0",
+  "total_3d_models": 666,
+  "total_pbr_materials": 18,
+  "categories": {
+    "roads": [
+      {
+        "name": "light-square-double",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/light-square-double.fbx",
+        "size_bytes": 26032
+      },
+      {
+        "name": "road-driveway-double",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-driveway-double.fbx",
+        "size_bytes": 26688
+      },
+      {
+        "name": "traffic-light-object-vertical",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/traffic-light-object-vertical.fbx",
+        "size_bytes": 27680
+      },
+      {
+        "name": "road-bend-square",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-bend-square.fbx",
+        "size_bytes": 25584
+      },
+      {
+        "name": "road-end",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-end.fbx",
+        "size_bytes": 28528
+      },
+      {
+        "name": "road-crossing",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-crossing.fbx",
+        "size_bytes": 25088
+      },
+      {
+        "name": "light-curved-double",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/light-curved-double.fbx",
+        "size_bytes": 27712
+      },
+      {
+        "name": "electricity-pole-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-pole-wide.fbx",
+        "size_bytes": 45376
+      },
+      {
+        "name": "road-split-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-split-barrier.fbx",
+        "size_bytes": 42032
+      },
+      {
+        "name": "road-square",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-square.fbx",
+        "size_bytes": 28272
+      },
+      {
+        "name": "road-straight-barrier-half",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-straight-barrier-half.fbx",
+        "size_bytes": 27008
+      },
+      {
+        "name": "road-crossroad-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-crossroad-barrier.fbx",
+        "size_bytes": 27584
+      },
+      {
+        "name": "road-crossroad-path",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-crossroad-path.fbx",
+        "size_bytes": 27664
+      },
+      {
+        "name": "road-sign-object-street",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-object-street.fbx",
+        "size_bytes": 26560
+      },
+      {
+        "name": "light-curved-cross",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/light-curved-cross.fbx",
+        "size_bytes": 31136
+      },
+      {
+        "name": "road-sign-empty-hanging",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-empty-hanging.fbx",
+        "size_bytes": 26864
+      },
+      {
+        "name": "bridge-pillar-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/bridge-pillar-wide.fbx",
+        "size_bytes": 28208
+      },
+      {
+        "name": "tile-low",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/tile-low.fbx",
+        "size_bytes": 27472
+      },
+      {
+        "name": "road-curve-intersection",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-curve-intersection.fbx",
+        "size_bytes": 30320
+      },
+      {
+        "name": "light-square",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/light-square.fbx",
+        "size_bytes": 26832
+      },
+      {
+        "name": "road-side-exit",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-side-exit.fbx",
+        "size_bytes": 31392
+      },
+      {
+        "name": "traffic-light-object-horizontal",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/traffic-light-object-horizontal.fbx",
+        "size_bytes": 27248
+      },
+      {
+        "name": "road-sign-warning",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-warning.fbx",
+        "size_bytes": 27808
+      },
+      {
+        "name": "road-sign-stop",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-stop.fbx",
+        "size_bytes": 27264
+      },
+      {
+        "name": "road-side-entry-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-side-entry-barrier.fbx",
+        "size_bytes": 33104
+      },
+      {
+        "name": "road-slant-curve-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-curve-barrier.fbx",
+        "size_bytes": 38288
+      },
+      {
+        "name": "construction-fence",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/construction-fence.fbx",
+        "size_bytes": 30128
+      },
+      {
+        "name": "road-side-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-side-barrier.fbx",
+        "size_bytes": 27056
+      },
+      {
+        "name": "dumpster",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/dumpster.fbx",
+        "size_bytes": 49744
+      },
+      {
+        "name": "electricity-pole-single",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-pole-single.fbx",
+        "size_bytes": 32304
+      },
+      {
+        "name": "construction-cone",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/construction-cone.fbx",
+        "size_bytes": 26816
+      },
+      {
+        "name": "sign-highway-detailed",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/sign-highway-detailed.fbx",
+        "size_bytes": 30048
+      },
+      {
+        "name": "road-side-entry",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-side-entry.fbx",
+        "size_bytes": 31408
+      },
+      {
+        "name": "traffic-light-object-hanging",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/traffic-light-object-hanging.fbx",
+        "size_bytes": 27312
+      },
+      {
+        "name": "road-intersection-path",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-intersection-path.fbx",
+        "size_bytes": 26912
+      },
+      {
+        "name": "road-end-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-end-barrier.fbx",
+        "size_bytes": 27360
+      },
+      {
+        "name": "road-straight",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-straight.fbx",
+        "size_bytes": 25328
+      },
+      {
+        "name": "road-driveway-single-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-driveway-single-barrier.fbx",
+        "size_bytes": 26624
+      },
+      {
+        "name": "electricity-side-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-side-wide.fbx",
+        "size_bytes": 45536
+      },
+      {
+        "name": "road-sign-empty",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-empty.fbx",
+        "size_bytes": 28832
+      },
+      {
+        "name": "road-slant-flat-high",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-flat-high.fbx",
+        "size_bytes": 25440
+      },
+      {
+        "name": "road-slant-flat",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-flat.fbx",
+        "size_bytes": 25424
+      },
+      {
+        "name": "road-curve",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-curve.fbx",
+        "size_bytes": 30496
+      },
+      {
+        "name": "road-split",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-split.fbx",
+        "size_bytes": 43184
+      },
+      {
+        "name": "road-straight-half",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-straight-half.fbx",
+        "size_bytes": 25344
+      },
+      {
+        "name": "road-bend-sidewalk",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-bend-sidewalk.fbx",
+        "size_bytes": 28864
+      },
+      {
+        "name": "sign-highway",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/sign-highway.fbx",
+        "size_bytes": 28288
+      },
+      {
+        "name": "road-bend-square-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-bend-square-barrier.fbx",
+        "size_bytes": 26304
+      },
+      {
+        "name": "road-crossroad",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-crossroad.fbx",
+        "size_bytes": 25552
+      },
+      {
+        "name": "road-bridge",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-bridge.fbx",
+        "size_bytes": 29136
+      },
+      {
+        "name": "road-bend",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-bend.fbx",
+        "size_bytes": 29632
+      },
+      {
+        "name": "road-slant-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-barrier.fbx",
+        "size_bytes": 27072
+      },
+      {
+        "name": "road-crossroad-line",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-crossroad-line.fbx",
+        "size_bytes": 25440
+      },
+      {
+        "name": "road-slant-high",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-high.fbx",
+        "size_bytes": 25360
+      },
+      {
+        "name": "road-intersection-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-intersection-barrier.fbx",
+        "size_bytes": 27680
+      },
+      {
+        "name": "road-end-round-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-end-round-barrier.fbx",
+        "size_bytes": 30352
+      },
+      {
+        "name": "road-curve-pavement",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-curve-pavement.fbx",
+        "size_bytes": 28704
+      },
+      {
+        "name": "road-bend-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-bend-barrier.fbx",
+        "size_bytes": 27984
+      },
+      {
+        "name": "road-sign-object-stop",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-object-stop.fbx",
+        "size_bytes": 27376
+      },
+      {
+        "name": "electricity-wires-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-wires-wide.fbx",
+        "size_bytes": 33616
+      },
+      {
+        "name": "road-slant-curve",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-curve.fbx",
+        "size_bytes": 35440
+      },
+      {
+        "name": "road-square-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-square-barrier.fbx",
+        "size_bytes": 27776
+      },
+      {
+        "name": "road-roundabout",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-roundabout.fbx",
+        "size_bytes": 53728
+      },
+      {
+        "name": "electricity-side",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-side.fbx",
+        "size_bytes": 39984
+      },
+      {
+        "name": "road-slant-high-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-high-barrier.fbx",
+        "size_bytes": 27104
+      },
+      {
+        "name": "road-straight-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-straight-barrier.fbx",
+        "size_bytes": 27040
+      },
+      {
+        "name": "electricity-pole",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-pole.fbx",
+        "size_bytes": 40064
+      },
+      {
+        "name": "electricity-wires",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-wires.fbx",
+        "size_bytes": 28784
+      },
+      {
+        "name": "road-roundabout-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-roundabout-barrier.fbx",
+        "size_bytes": 48064
+      },
+      {
+        "name": "sign-highway-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/sign-highway-wide.fbx",
+        "size_bytes": 27536
+      },
+      {
+        "name": "road-straight-barrier-end",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-straight-barrier-end.fbx",
+        "size_bytes": 25968
+      },
+      {
+        "name": "road-sign-object-warning",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-object-warning.fbx",
+        "size_bytes": 27936
+      },
+      {
+        "name": "road-sign-street",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-sign-street.fbx",
+        "size_bytes": 28160
+      },
+      {
+        "name": "traffic-light-hanging",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/traffic-light-hanging.fbx",
+        "size_bytes": 30784
+      },
+      {
+        "name": "road-curve-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-curve-barrier.fbx",
+        "size_bytes": 30112
+      },
+      {
+        "name": "road-intersection-line",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-intersection-line.fbx",
+        "size_bytes": 26080
+      },
+      {
+        "name": "bridge-pillar",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/bridge-pillar.fbx",
+        "size_bytes": 28192
+      },
+      {
+        "name": "road-side",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-side.fbx",
+        "size_bytes": 25504
+      },
+      {
+        "name": "construction-light",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/construction-light.fbx",
+        "size_bytes": 29232
+      },
+      {
+        "name": "road-end-round",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-end-round.fbx",
+        "size_bytes": 28784
+      },
+      {
+        "name": "tile-slantHigh",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/tile-slantHigh.fbx",
+        "size_bytes": 27504
+      },
+      {
+        "name": "road-curve-intersection-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-curve-intersection-barrier.fbx",
+        "size_bytes": 29008
+      },
+      {
+        "name": "road-slant",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant.fbx",
+        "size_bytes": 25376
+      },
+      {
+        "name": "road-intersection",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-intersection.fbx",
+        "size_bytes": 26416
+      },
+      {
+        "name": "light-square-cross",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/light-square-cross.fbx",
+        "size_bytes": 27472
+      },
+      {
+        "name": "traffic-light",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/traffic-light.fbx",
+        "size_bytes": 29968
+      },
+      {
+        "name": "road-driveway-double-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-driveway-double-barrier.fbx",
+        "size_bytes": 27504
+      },
+      {
+        "name": "electricity-side-single",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/electricity-side-single.fbx",
+        "size_bytes": 32352
+      },
+      {
+        "name": "road-side-exit-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-side-exit-barrier.fbx",
+        "size_bytes": 33152
+      },
+      {
+        "name": "tile-slant",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/tile-slant.fbx",
+        "size_bytes": 27488
+      },
+      {
+        "name": "road-driveway-single",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-driveway-single.fbx",
+        "size_bytes": 26160
+      },
+      {
+        "name": "tile-high",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/tile-high.fbx",
+        "size_bytes": 27488
+      },
+      {
+        "name": "construction-barrier",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/construction-barrier.fbx",
+        "size_bytes": 28112
+      },
+      {
+        "name": "road-slant-flat-curve",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/road-slant-flat-curve.fbx",
+        "size_bytes": 38096
+      },
+      {
+        "name": "light-curved",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_roads/Models/FBX format/light-curved.fbx",
+        "size_bytes": 26288
+      },
+      {
+        "name": "traffic-light-object-horizontal",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/traffic-light-object-horizontal.obj",
+        "size_bytes": 11447
+      },
+      {
+        "name": "road-sign-warning",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-warning.obj",
+        "size_bytes": 10399
+      },
+      {
+        "name": "road-sign-stop",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-stop.obj",
+        "size_bytes": 10103
+      },
+      {
+        "name": "road-slant-curve-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-curve-barrier.obj",
+        "size_bytes": 36922
+      },
+      {
+        "name": "road-side-entry-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-side-entry-barrier.obj",
+        "size_bytes": 20134
+      },
+      {
+        "name": "construction-fence",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/construction-fence.obj",
+        "size_bytes": 11642
+      },
+      {
+        "name": "road-side-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-side-barrier.obj",
+        "size_bytes": 1952
+      },
+      {
+        "name": "dumpster",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/dumpster.obj",
+        "size_bytes": 20242
+      },
+      {
+        "name": "electricity-pole-single",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-pole-single.obj",
+        "size_bytes": 16747
+      },
+      {
+        "name": "construction-cone",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/construction-cone.obj",
+        "size_bytes": 5733
+      },
+      {
+        "name": "road-side-entry",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-side-entry.obj",
+        "size_bytes": 24943
+      },
+      {
+        "name": "sign-highway-detailed",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/sign-highway-detailed.obj",
+        "size_bytes": 23135
+      },
+      {
+        "name": "traffic-light-object-hanging",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/traffic-light-object-hanging.obj",
+        "size_bytes": 11382
+      },
+      {
+        "name": "road-intersection-path",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-intersection-path.obj",
+        "size_bytes": 14982
+      },
+      {
+        "name": "road-straight",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-straight.obj",
+        "size_bytes": 2943
+      },
+      {
+        "name": "road-end-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-end-barrier.obj",
+        "size_bytes": 1931
+      },
+      {
+        "name": "road-driveway-single-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-driveway-single-barrier.obj",
+        "size_bytes": 3822
+      },
+      {
+        "name": "road-curve",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-curve.obj",
+        "size_bytes": 25857
+      },
+      {
+        "name": "road-sign-empty",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-empty.obj",
+        "size_bytes": 3836
+      },
+      {
+        "name": "electricity-side-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-side-wide.obj",
+        "size_bytes": 50589
+      },
+      {
+        "name": "road-slant-flat-high",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-flat-high.obj",
+        "size_bytes": 3229
+      },
+      {
+        "name": "road-slant-flat",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-flat.obj",
+        "size_bytes": 3190
+      },
+      {
+        "name": "road-split",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-split.obj",
+        "size_bytes": 73524
+      },
+      {
+        "name": "road-straight-half",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-straight-half.obj",
+        "size_bytes": 2982
+      },
+      {
+        "name": "light-square-double",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/light-square-double.obj",
+        "size_bytes": 6779
+      },
+      {
+        "name": "road-driveway-double",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-driveway-double.obj",
+        "size_bytes": 4796
+      },
+      {
+        "name": "road-end",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-end.obj",
+        "size_bytes": 3255
+      },
+      {
+        "name": "road-crossing",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-crossing.obj",
+        "size_bytes": 6686
+      },
+      {
+        "name": "traffic-light-object-vertical",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/traffic-light-object-vertical.obj",
+        "size_bytes": 12501
+      },
+      {
+        "name": "road-bend-square",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-bend-square.obj",
+        "size_bytes": 4520
+      },
+      {
+        "name": "light-curved-double",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/light-curved-double.obj",
+        "size_bytes": 12487
+      },
+      {
+        "name": "electricity-pole-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-pole-wide.obj",
+        "size_bytes": 50797
+      },
+      {
+        "name": "road-split-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-split-barrier.obj",
+        "size_bytes": 46022
+      },
+      {
+        "name": "road-straight-barrier-half",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-straight-barrier-half.obj",
+        "size_bytes": 1851
+      },
+      {
+        "name": "road-square",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-square.obj",
+        "size_bytes": 2381
+      },
+      {
+        "name": "road-crossroad-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-crossroad-barrier.obj",
+        "size_bytes": 9160
+      },
+      {
+        "name": "road-crossroad-path",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-crossroad-path.obj",
+        "size_bytes": 18749
+      },
+      {
+        "name": "road-sign-object-street",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-object-street.obj",
+        "size_bytes": 4892
+      },
+      {
+        "name": "light-curved-cross",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/light-curved-cross.obj",
+        "size_bytes": 22952
+      },
+      {
+        "name": "road-sign-empty-hanging",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-empty-hanging.obj",
+        "size_bytes": 9086
+      },
+      {
+        "name": "tile-low",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/tile-low.obj",
+        "size_bytes": 896
+      },
+      {
+        "name": "bridge-pillar-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/bridge-pillar-wide.obj",
+        "size_bytes": 2962
+      },
+      {
+        "name": "road-curve-intersection",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-curve-intersection.obj",
+        "size_bytes": 24336
+      },
+      {
+        "name": "light-square",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/light-square.obj",
+        "size_bytes": 4696
+      },
+      {
+        "name": "road-side-exit",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-side-exit.obj",
+        "size_bytes": 25102
+      },
+      {
+        "name": "road-straight-barrier-end",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-straight-barrier-end.obj",
+        "size_bytes": 1468
+      },
+      {
+        "name": "sign-highway-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/sign-highway-wide.obj",
+        "size_bytes": 12605
+      },
+      {
+        "name": "road-roundabout-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-roundabout-barrier.obj",
+        "size_bytes": 64502
+      },
+      {
+        "name": "road-sign-object-warning",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-object-warning.obj",
+        "size_bytes": 6514
+      },
+      {
+        "name": "road-curve-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-curve-barrier.obj",
+        "size_bytes": 16272
+      },
+      {
+        "name": "road-sign-street",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-street.obj",
+        "size_bytes": 13268
+      },
+      {
+        "name": "traffic-light-hanging",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/traffic-light-hanging.obj",
+        "size_bytes": 20818
+      },
+      {
+        "name": "road-intersection-line",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-intersection-line.obj",
+        "size_bytes": 5372
+      },
+      {
+        "name": "bridge-pillar",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/bridge-pillar.obj",
+        "size_bytes": 2927
+      },
+      {
+        "name": "road-end-round",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-end-round.obj",
+        "size_bytes": 18039
+      },
+      {
+        "name": "road-side",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-side.obj",
+        "size_bytes": 3211
+      },
+      {
+        "name": "construction-light",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/construction-light.obj",
+        "size_bytes": 13876
+      },
+      {
+        "name": "road-slant",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant.obj",
+        "size_bytes": 2933
+      },
+      {
+        "name": "tile-slantHigh",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/tile-slantHigh.obj",
+        "size_bytes": 931
+      },
+      {
+        "name": "road-curve-intersection-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-curve-intersection-barrier.obj",
+        "size_bytes": 12912
+      },
+      {
+        "name": "road-intersection",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-intersection.obj",
+        "size_bytes": 6596
+      },
+      {
+        "name": "light-square-cross",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/light-square-cross.obj",
+        "size_bytes": 10494
+      },
+      {
+        "name": "traffic-light",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/traffic-light.obj",
+        "size_bytes": 18890
+      },
+      {
+        "name": "road-driveway-double-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-driveway-double-barrier.obj",
+        "size_bytes": 5831
+      },
+      {
+        "name": "tile-slant",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/tile-slant.obj",
+        "size_bytes": 919
+      },
+      {
+        "name": "electricity-side-single",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-side-single.obj",
+        "size_bytes": 16411
+      },
+      {
+        "name": "road-side-exit-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-side-exit-barrier.obj",
+        "size_bytes": 19759
+      },
+      {
+        "name": "road-driveway-single",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-driveway-single.obj",
+        "size_bytes": 4016
+      },
+      {
+        "name": "tile-high",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/tile-high.obj",
+        "size_bytes": 899
+      },
+      {
+        "name": "construction-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/construction-barrier.obj",
+        "size_bytes": 5567
+      },
+      {
+        "name": "light-curved",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/light-curved.obj",
+        "size_bytes": 7989
+      },
+      {
+        "name": "road-slant-flat-curve",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-flat-curve.obj",
+        "size_bytes": 57005
+      },
+      {
+        "name": "sign-highway",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/sign-highway.obj",
+        "size_bytes": 15738
+      },
+      {
+        "name": "road-bend-sidewalk",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-bend-sidewalk.obj",
+        "size_bytes": 19782
+      },
+      {
+        "name": "road-bend-square-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-bend-square-barrier.obj",
+        "size_bytes": 3685
+      },
+      {
+        "name": "road-crossroad",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-crossroad.obj",
+        "size_bytes": 7870
+      },
+      {
+        "name": "road-bridge",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-bridge.obj",
+        "size_bytes": 17839
+      },
+      {
+        "name": "road-bend",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-bend.obj",
+        "size_bytes": 22675
+      },
+      {
+        "name": "road-crossroad-line",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-crossroad-line.obj",
+        "size_bytes": 7323
+      },
+      {
+        "name": "road-slant-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-barrier.obj",
+        "size_bytes": 1792
+      },
+      {
+        "name": "road-slant-high",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-high.obj",
+        "size_bytes": 2950
+      },
+      {
+        "name": "road-intersection-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-intersection-barrier.obj",
+        "size_bytes": 5342
+      },
+      {
+        "name": "road-curve-pavement",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-curve-pavement.obj",
+        "size_bytes": 18532
+      },
+      {
+        "name": "road-end-round-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-end-round-barrier.obj",
+        "size_bytes": 13275
+      },
+      {
+        "name": "road-sign-object-stop",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-sign-object-stop.obj",
+        "size_bytes": 6041
+      },
+      {
+        "name": "electricity-wires-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-wires-wide.obj",
+        "size_bytes": 17563
+      },
+      {
+        "name": "road-bend-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-bend-barrier.obj",
+        "size_bytes": 10395
+      },
+      {
+        "name": "road-slant-curve",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-curve.obj",
+        "size_bytes": 45888
+      },
+      {
+        "name": "road-square-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-square-barrier.obj",
+        "size_bytes": 2189
+      },
+      {
+        "name": "road-roundabout",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-roundabout.obj",
+        "size_bytes": 122612
+      },
+      {
+        "name": "road-slant-high-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-slant-high-barrier.obj",
+        "size_bytes": 1799
+      },
+      {
+        "name": "electricity-side",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-side.obj",
+        "size_bytes": 37673
+      },
+      {
+        "name": "electricity-wires",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-wires.obj",
+        "size_bytes": 6023
+      },
+      {
+        "name": "road-straight-barrier",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/road-straight-barrier.obj",
+        "size_bytes": 1876
+      },
+      {
+        "name": "electricity-pole",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_roads/Models/OBJ format/electricity-pole.obj",
+        "size_bytes": 37825
+      },
+      {
+        "name": "road-slant-high",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-high.glb",
+        "size_bytes": 5256
+      },
+      {
+        "name": "road-intersection-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-intersection-barrier.glb",
+        "size_bytes": 7676
+      },
+      {
+        "name": "road-end-round-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-end-round-barrier.glb",
+        "size_bytes": 16328
+      },
+      {
+        "name": "road-curve-pavement",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-curve-pavement.glb",
+        "size_bytes": 17044
+      },
+      {
+        "name": "road-bend-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-bend-barrier.glb",
+        "size_bytes": 11912
+      },
+      {
+        "name": "road-sign-object-stop",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-object-stop.glb",
+        "size_bytes": 6600
+      },
+      {
+        "name": "electricity-wires-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-wires-wide.glb",
+        "size_bytes": 22240
+      },
+      {
+        "name": "road-slant-curve",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-curve.glb",
+        "size_bytes": 47880
+      },
+      {
+        "name": "road-square-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-square-barrier.glb",
+        "size_bytes": 4048
+      },
+      {
+        "name": "road-roundabout",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-roundabout.glb",
+        "size_bytes": 105876
+      },
+      {
+        "name": "electricity-side",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-side.glb",
+        "size_bytes": 43652
+      },
+      {
+        "name": "road-slant-high-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-high-barrier.glb",
+        "size_bytes": 4068
+      },
+      {
+        "name": "road-straight-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-straight-barrier.glb",
+        "size_bytes": 4196
+      },
+      {
+        "name": "electricity-pole",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-pole.glb",
+        "size_bytes": 43652
+      },
+      {
+        "name": "electricity-wires",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-wires.glb",
+        "size_bytes": 8952
+      },
+      {
+        "name": "road-bend-sidewalk",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-bend-sidewalk.glb",
+        "size_bytes": 17024
+      },
+      {
+        "name": "sign-highway",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/sign-highway.glb",
+        "size_bytes": 17288
+      },
+      {
+        "name": "road-bend-square-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-bend-square-barrier.glb",
+        "size_bytes": 5880
+      },
+      {
+        "name": "road-bridge",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-bridge.glb",
+        "size_bytes": 24796
+      },
+      {
+        "name": "road-crossroad",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-crossroad.glb",
+        "size_bytes": 10084
+      },
+      {
+        "name": "road-bend",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-bend.glb",
+        "size_bytes": 20164
+      },
+      {
+        "name": "road-slant-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-barrier.glb",
+        "size_bytes": 4052
+      },
+      {
+        "name": "road-crossroad-line",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-crossroad-line.glb",
+        "size_bytes": 9692
+      },
+      {
+        "name": "road-intersection",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-intersection.glb",
+        "size_bytes": 7900
+      },
+      {
+        "name": "light-square-cross",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/light-square-cross.glb",
+        "size_bytes": 13512
+      },
+      {
+        "name": "road-driveway-double-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-driveway-double-barrier.glb",
+        "size_bytes": 8460
+      },
+      {
+        "name": "traffic-light",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/traffic-light.glb",
+        "size_bytes": 20344
+      },
+      {
+        "name": "road-side-exit-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-side-exit-barrier.glb",
+        "size_bytes": 20272
+      },
+      {
+        "name": "electricity-side-single",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-side-single.glb",
+        "size_bytes": 19464
+      },
+      {
+        "name": "tile-slant",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/tile-slant.glb",
+        "size_bytes": 2820
+      },
+      {
+        "name": "road-driveway-single",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-driveway-single.glb",
+        "size_bytes": 6568
+      },
+      {
+        "name": "tile-high",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/tile-high.glb",
+        "size_bytes": 2788
+      },
+      {
+        "name": "construction-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/construction-barrier.glb",
+        "size_bytes": 7052
+      },
+      {
+        "name": "road-slant-flat-curve",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-flat-curve.glb",
+        "size_bytes": 55868
+      },
+      {
+        "name": "light-curved",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/light-curved.glb",
+        "size_bytes": 9492
+      },
+      {
+        "name": "road-roundabout-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-roundabout-barrier.glb",
+        "size_bytes": 61636
+      },
+      {
+        "name": "road-straight-barrier-end",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-straight-barrier-end.glb",
+        "size_bytes": 3640
+      },
+      {
+        "name": "sign-highway-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/sign-highway-wide.glb",
+        "size_bytes": 13968
+      },
+      {
+        "name": "road-sign-object-warning",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-object-warning.glb",
+        "size_bytes": 7384
+      },
+      {
+        "name": "traffic-light-hanging",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/traffic-light-hanging.glb",
+        "size_bytes": 22132
+      },
+      {
+        "name": "road-sign-street",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-street.glb",
+        "size_bytes": 15948
+      },
+      {
+        "name": "road-curve-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-curve-barrier.glb",
+        "size_bytes": 17920
+      },
+      {
+        "name": "road-intersection-line",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-intersection-line.glb",
+        "size_bytes": 7492
+      },
+      {
+        "name": "bridge-pillar",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/bridge-pillar.glb",
+        "size_bytes": 5468
+      },
+      {
+        "name": "construction-light",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/construction-light.glb",
+        "size_bytes": 15320
+      },
+      {
+        "name": "road-side",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-side.glb",
+        "size_bytes": 5272
+      },
+      {
+        "name": "road-end-round",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-end-round.glb",
+        "size_bytes": 17532
+      },
+      {
+        "name": "tile-slantHigh",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/tile-slantHigh.glb",
+        "size_bytes": 2832
+      },
+      {
+        "name": "road-curve-intersection-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-curve-intersection-barrier.glb",
+        "size_bytes": 15480
+      },
+      {
+        "name": "road-slant",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant.glb",
+        "size_bytes": 5240
+      },
+      {
+        "name": "electricity-pole-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-pole-wide.glb",
+        "size_bytes": 56732
+      },
+      {
+        "name": "road-split-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-split-barrier.glb",
+        "size_bytes": 41340
+      },
+      {
+        "name": "road-straight-barrier-half",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-straight-barrier-half.glb",
+        "size_bytes": 4092
+      },
+      {
+        "name": "road-square",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-square.glb",
+        "size_bytes": 4436
+      },
+      {
+        "name": "road-crossroad-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-crossroad-barrier.glb",
+        "size_bytes": 11256
+      },
+      {
+        "name": "road-sign-object-street",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-object-street.glb",
+        "size_bytes": 6648
+      },
+      {
+        "name": "light-curved-cross",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/light-curved-cross.glb",
+        "size_bytes": 24912
+      },
+      {
+        "name": "road-crossroad-path",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-crossroad-path.glb",
+        "size_bytes": 18708
+      },
+      {
+        "name": "road-sign-empty-hanging",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-empty-hanging.glb",
+        "size_bytes": 12072
+      },
+      {
+        "name": "bridge-pillar-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/bridge-pillar-wide.glb",
+        "size_bytes": 5488
+      },
+      {
+        "name": "tile-low",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/tile-low.glb",
+        "size_bytes": 2800
+      },
+      {
+        "name": "road-curve-intersection",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-curve-intersection.glb",
+        "size_bytes": 22788
+      },
+      {
+        "name": "road-side-exit",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-side-exit.glb",
+        "size_bytes": 24280
+      },
+      {
+        "name": "light-square",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/light-square.glb",
+        "size_bytes": 6996
+      },
+      {
+        "name": "light-square-double",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/light-square-double.glb",
+        "size_bytes": 9216
+      },
+      {
+        "name": "road-driveway-double",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-driveway-double.glb",
+        "size_bytes": 7664
+      },
+      {
+        "name": "road-bend-square",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-bend-square.glb",
+        "size_bytes": 6268
+      },
+      {
+        "name": "traffic-light-object-vertical",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/traffic-light-object-vertical.glb",
+        "size_bytes": 12408
+      },
+      {
+        "name": "road-crossing",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-crossing.glb",
+        "size_bytes": 8700
+      },
+      {
+        "name": "road-end",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-end.glb",
+        "size_bytes": 4940
+      },
+      {
+        "name": "light-curved-double",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/light-curved-double.glb",
+        "size_bytes": 14208
+      },
+      {
+        "name": "road-side-entry",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-side-entry.glb",
+        "size_bytes": 24288
+      },
+      {
+        "name": "sign-highway-detailed",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/sign-highway-detailed.glb",
+        "size_bytes": 23532
+      },
+      {
+        "name": "road-intersection-path",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-intersection-path.glb",
+        "size_bytes": 13736
+      },
+      {
+        "name": "traffic-light-object-hanging",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/traffic-light-object-hanging.glb",
+        "size_bytes": 10876
+      },
+      {
+        "name": "road-end-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-end-barrier.glb",
+        "size_bytes": 4028
+      },
+      {
+        "name": "road-straight",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-straight.glb",
+        "size_bytes": 5248
+      },
+      {
+        "name": "road-driveway-single-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-driveway-single-barrier.glb",
+        "size_bytes": 6272
+      },
+      {
+        "name": "road-slant-flat",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-flat.glb",
+        "size_bytes": 5284
+      },
+      {
+        "name": "road-sign-empty",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-empty.glb",
+        "size_bytes": 5968
+      },
+      {
+        "name": "electricity-side-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-side-wide.glb",
+        "size_bytes": 56732
+      },
+      {
+        "name": "road-slant-flat-high",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-flat-high.glb",
+        "size_bytes": 5300
+      },
+      {
+        "name": "road-curve",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-curve.glb",
+        "size_bytes": 23912
+      },
+      {
+        "name": "road-split",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-split.glb",
+        "size_bytes": 60128
+      },
+      {
+        "name": "road-straight-half",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-straight-half.glb",
+        "size_bytes": 5264
+      },
+      {
+        "name": "traffic-light-object-horizontal",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/traffic-light-object-horizontal.glb",
+        "size_bytes": 11664
+      },
+      {
+        "name": "road-sign-warning",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-warning.glb",
+        "size_bytes": 11496
+      },
+      {
+        "name": "road-sign-stop",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-sign-stop.glb",
+        "size_bytes": 10720
+      },
+      {
+        "name": "road-side-entry-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-side-entry-barrier.glb",
+        "size_bytes": 20276
+      },
+      {
+        "name": "road-slant-curve-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-slant-curve-barrier.glb",
+        "size_bytes": 38824
+      },
+      {
+        "name": "construction-fence",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/construction-fence.glb",
+        "size_bytes": 14856
+      },
+      {
+        "name": "road-side-barrier",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/road-side-barrier.glb",
+        "size_bytes": 4200
+      },
+      {
+        "name": "dumpster",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/dumpster.glb",
+        "size_bytes": 24400
+      },
+      {
+        "name": "construction-cone",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/construction-cone.glb",
+        "size_bytes": 7056
+      },
+      {
+        "name": "electricity-pole-single",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_roads/Models/GLB format/electricity-pole-single.glb",
+        "size_bytes": 19480
+      }
+    ],
+    "industrial_megatowers": [
+      {
+        "name": "solar-panel-flat",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/solar-panel-flat.fbx",
+        "size_bytes": 28960
+      },
+      {
+        "name": "solar-panel-landscape",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/solar-panel-landscape.fbx",
+        "size_bytes": 32240
+      },
+      {
+        "name": "shipping-container-b",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/shipping-container-b.fbx",
+        "size_bytes": 37568
+      },
+      {
+        "name": "shipping-container-c",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/shipping-container-c.fbx",
+        "size_bytes": 36512
+      },
+      {
+        "name": "detail-tank-large",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/detail-tank-large.fbx",
+        "size_bytes": 50464
+      },
+      {
+        "name": "shipping-container-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/shipping-container-a.fbx",
+        "size_bytes": 36528
+      },
+      {
+        "name": "detail-tank",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/detail-tank.fbx",
+        "size_bytes": 37920
+      },
+      {
+        "name": "building-o",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-o.fbx",
+        "size_bytes": 49200
+      },
+      {
+        "name": "building-n",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-n.fbx",
+        "size_bytes": 60928
+      },
+      {
+        "name": "solar-panel-portrait-group",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/solar-panel-portrait-group.fbx",
+        "size_bytes": 44176
+      },
+      {
+        "name": "building-l",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-l.fbx",
+        "size_bytes": 74656
+      },
+      {
+        "name": "building-m",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-m.fbx",
+        "size_bytes": 72752
+      },
+      {
+        "name": "building-i",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-i.fbx",
+        "size_bytes": 52512
+      },
+      {
+        "name": "windmill-low",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/windmill-low.fbx",
+        "size_bytes": 53088
+      },
+      {
+        "name": "building-h",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-h.fbx",
+        "size_bytes": 45504
+      },
+      {
+        "name": "building-j",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-j.fbx",
+        "size_bytes": 54928
+      },
+      {
+        "name": "windmill",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/windmill.fbx",
+        "size_bytes": 53072
+      },
+      {
+        "name": "building-k",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-k.fbx",
+        "size_bytes": 46432
+      },
+      {
+        "name": "building-f",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-f.fbx",
+        "size_bytes": 67872
+      },
+      {
+        "name": "building-q",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-q.fbx",
+        "size_bytes": 80352
+      },
+      {
+        "name": "chimney-medium",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/chimney-medium.fbx",
+        "size_bytes": 29120
+      },
+      {
+        "name": "building-p",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-p.fbx",
+        "size_bytes": 59472
+      },
+      {
+        "name": "building-g",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-g.fbx",
+        "size_bytes": 59216
+      },
+      {
+        "name": "building-e",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-e.fbx",
+        "size_bytes": 66704
+      },
+      {
+        "name": "building-r",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-r.fbx",
+        "size_bytes": 85904
+      },
+      {
+        "name": "solar-panel-portrait",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/solar-panel-portrait.fbx",
+        "size_bytes": 31632
+      },
+      {
+        "name": "building-s",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-s.fbx",
+        "size_bytes": 51264
+      },
+      {
+        "name": "building-d",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-d.fbx",
+        "size_bytes": 56512
+      },
+      {
+        "name": "building-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-a.fbx",
+        "size_bytes": 79968
+      },
+      {
+        "name": "building-t",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-t.fbx",
+        "size_bytes": 77008
+      },
+      {
+        "name": "building-c",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-c.fbx",
+        "size_bytes": 84528
+      },
+      {
+        "name": "building-b",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/building-b.fbx",
+        "size_bytes": 90928
+      },
+      {
+        "name": "water-tower",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/water-tower.fbx",
+        "size_bytes": 66976
+      },
+      {
+        "name": "solar-panel-landscape-group",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/solar-panel-landscape-group.fbx",
+        "size_bytes": 45824
+      },
+      {
+        "name": "chimney-large",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/chimney-large.fbx",
+        "size_bytes": 33152
+      },
+      {
+        "name": "chimney-basic",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/chimney-basic.fbx",
+        "size_bytes": 26192
+      },
+      {
+        "name": "chimney-small",
+        "format": "FBX",
+        "relative_path": "assets/kenney/city_industrial/Models/FBX format/chimney-small.fbx",
+        "size_bytes": 26608
+      },
+      {
+        "name": "building-o",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-o.obj",
+        "size_bytes": 75591
+      },
+      {
+        "name": "building-n",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-n.obj",
+        "size_bytes": 115562
+      },
+      {
+        "name": "solar-panel-portrait-group",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/solar-panel-portrait-group.obj",
+        "size_bytes": 97191
+      },
+      {
+        "name": "building-l",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-l.obj",
+        "size_bytes": 169240
+      },
+      {
+        "name": "building-m",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-m.obj",
+        "size_bytes": 152103
+      },
+      {
+        "name": "building-i",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-i.obj",
+        "size_bytes": 76949
+      },
+      {
+        "name": "windmill-low",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/windmill-low.obj",
+        "size_bytes": 41539
+      },
+      {
+        "name": "building-h",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-h.obj",
+        "size_bytes": 64434
+      },
+      {
+        "name": "building-j",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-j.obj",
+        "size_bytes": 87139
+      },
+      {
+        "name": "windmill",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/windmill.obj",
+        "size_bytes": 41473
+      },
+      {
+        "name": "building-k",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-k.obj",
+        "size_bytes": 63441
+      },
+      {
+        "name": "solar-panel-landscape",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/solar-panel-landscape.obj",
+        "size_bytes": 25335
+      },
+      {
+        "name": "solar-panel-flat",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/solar-panel-flat.obj",
+        "size_bytes": 17380
+      },
+      {
+        "name": "shipping-container-b",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/shipping-container-b.obj",
+        "size_bytes": 38976
+      },
+      {
+        "name": "shipping-container-c",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/shipping-container-c.obj",
+        "size_bytes": 38785
+      },
+      {
+        "name": "detail-tank-large",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/detail-tank-large.obj",
+        "size_bytes": 56967
+      },
+      {
+        "name": "shipping-container-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/shipping-container-a.obj",
+        "size_bytes": 38890
+      },
+      {
+        "name": "detail-tank",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/detail-tank.obj",
+        "size_bytes": 30254
+      },
+      {
+        "name": "water-tower",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/water-tower.obj",
+        "size_bytes": 87391
+      },
+      {
+        "name": "solar-panel-landscape-group",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/solar-panel-landscape-group.obj",
+        "size_bytes": 97022
+      },
+      {
+        "name": "chimney-large",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/chimney-large.obj",
+        "size_bytes": 17935
+      },
+      {
+        "name": "chimney-basic",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/chimney-basic.obj",
+        "size_bytes": 7457
+      },
+      {
+        "name": "chimney-small",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/chimney-small.obj",
+        "size_bytes": 9049
+      },
+      {
+        "name": "chimney-medium",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/chimney-medium.obj",
+        "size_bytes": 12439
+      },
+      {
+        "name": "building-f",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-f.obj",
+        "size_bytes": 143521
+      },
+      {
+        "name": "building-q",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-q.obj",
+        "size_bytes": 194475
+      },
+      {
+        "name": "building-p",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-p.obj",
+        "size_bytes": 108670
+      },
+      {
+        "name": "building-g",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-g.obj",
+        "size_bytes": 116007
+      },
+      {
+        "name": "building-e",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-e.obj",
+        "size_bytes": 133552
+      },
+      {
+        "name": "building-r",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-r.obj",
+        "size_bytes": 186884
+      },
+      {
+        "name": "building-s",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-s.obj",
+        "size_bytes": 80577
+      },
+      {
+        "name": "building-d",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-d.obj",
+        "size_bytes": 102590
+      },
+      {
+        "name": "solar-panel-portrait",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/solar-panel-portrait.obj",
+        "size_bytes": 24927
+      },
+      {
+        "name": "building-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-a.obj",
+        "size_bytes": 175713
+      },
+      {
+        "name": "building-t",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-t.obj",
+        "size_bytes": 154138
+      },
+      {
+        "name": "building-c",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-c.obj",
+        "size_bytes": 183248
+      },
+      {
+        "name": "building-b",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/city_industrial/Models/OBJ format/building-b.obj",
+        "size_bytes": 223710
+      },
+      {
+        "name": "building-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-a.glb",
+        "size_bytes": 177316
+      },
+      {
+        "name": "building-t",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-t.glb",
+        "size_bytes": 139896
+      },
+      {
+        "name": "building-c",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-c.glb",
+        "size_bytes": 175844
+      },
+      {
+        "name": "building-b",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-b.glb",
+        "size_bytes": 212040
+      },
+      {
+        "name": "building-f",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-f.glb",
+        "size_bytes": 134916
+      },
+      {
+        "name": "building-q",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-q.glb",
+        "size_bytes": 181248
+      },
+      {
+        "name": "chimney-medium",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/chimney-medium.glb",
+        "size_bytes": 15020
+      },
+      {
+        "name": "building-p",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-p.glb",
+        "size_bytes": 103760
+      },
+      {
+        "name": "building-g",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-g.glb",
+        "size_bytes": 106940
+      },
+      {
+        "name": "building-e",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-e.glb",
+        "size_bytes": 129400
+      },
+      {
+        "name": "building-r",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-r.glb",
+        "size_bytes": 173056
+      },
+      {
+        "name": "solar-panel-portrait",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/solar-panel-portrait.glb",
+        "size_bytes": 21772
+      },
+      {
+        "name": "building-s",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-s.glb",
+        "size_bytes": 81192
+      },
+      {
+        "name": "building-d",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-d.glb",
+        "size_bytes": 100768
+      },
+      {
+        "name": "chimney-basic",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/chimney-basic.glb",
+        "size_bytes": 9036
+      },
+      {
+        "name": "chimney-small",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/chimney-small.glb",
+        "size_bytes": 10536
+      },
+      {
+        "name": "water-tower",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/water-tower.glb",
+        "size_bytes": 93836
+      },
+      {
+        "name": "solar-panel-landscape-group",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/solar-panel-landscape-group.glb",
+        "size_bytes": 81860
+      },
+      {
+        "name": "chimney-large",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/chimney-large.glb",
+        "size_bytes": 20932
+      },
+      {
+        "name": "detail-tank",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/detail-tank.glb",
+        "size_bytes": 31436
+      },
+      {
+        "name": "solar-panel-landscape",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/solar-panel-landscape.glb",
+        "size_bytes": 21776
+      },
+      {
+        "name": "solar-panel-flat",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/solar-panel-flat.glb",
+        "size_bytes": 13964
+      },
+      {
+        "name": "shipping-container-b",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/shipping-container-b.glb",
+        "size_bytes": 37052
+      },
+      {
+        "name": "shipping-container-c",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/shipping-container-c.glb",
+        "size_bytes": 36620
+      },
+      {
+        "name": "detail-tank-large",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/detail-tank-large.glb",
+        "size_bytes": 47452
+      },
+      {
+        "name": "shipping-container-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/shipping-container-a.glb",
+        "size_bytes": 36624
+      },
+      {
+        "name": "windmill-low",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/windmill-low.glb",
+        "size_bytes": 46296
+      },
+      {
+        "name": "building-i",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-i.glb",
+        "size_bytes": 73848
+      },
+      {
+        "name": "building-h",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-h.glb",
+        "size_bytes": 63644
+      },
+      {
+        "name": "building-j",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-j.glb",
+        "size_bytes": 80792
+      },
+      {
+        "name": "building-k",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-k.glb",
+        "size_bytes": 65472
+      },
+      {
+        "name": "windmill",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/windmill.glb",
+        "size_bytes": 46292
+      },
+      {
+        "name": "building-o",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-o.glb",
+        "size_bytes": 76552
+      },
+      {
+        "name": "building-n",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-n.glb",
+        "size_bytes": 109256
+      },
+      {
+        "name": "building-l",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-l.glb",
+        "size_bytes": 162424
+      },
+      {
+        "name": "solar-panel-portrait-group",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/solar-panel-portrait-group.glb",
+        "size_bytes": 81856
+      },
+      {
+        "name": "building-m",
+        "format": "GLB",
+        "relative_path": "assets/kenney/city_industrial/Models/GLB format/building-m.glb",
+        "size_bytes": 138920
+      }
+    ],
+    "vehicles": [
+      {
+        "name": "ambulance",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/ambulance.fbx",
+        "size_bytes": 146544
+      },
+      {
+        "name": "kart-oodi",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/kart-oodi.fbx",
+        "size_bytes": 169808
+      },
+      {
+        "name": "suv",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/suv.fbx",
+        "size_bytes": 135104
+      },
+      {
+        "name": "debris-drivetrain-axle",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-drivetrain-axle.fbx",
+        "size_bytes": 29360
+      },
+      {
+        "name": "garbage-truck",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/garbage-truck.fbx",
+        "size_bytes": 150560
+      },
+      {
+        "name": "taxi",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/taxi.fbx",
+        "size_bytes": 115344
+      },
+      {
+        "name": "suv-luxury",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/suv-luxury.fbx",
+        "size_bytes": 115472
+      },
+      {
+        "name": "wheel-racing",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-racing.fbx",
+        "size_bytes": 35456
+      },
+      {
+        "name": "hatchback-sports",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/hatchback-sports.fbx",
+        "size_bytes": 116032
+      },
+      {
+        "name": "kart-oopi",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/kart-oopi.fbx",
+        "size_bytes": 172928
+      },
+      {
+        "name": "race-future",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/race-future.fbx",
+        "size_bytes": 113232
+      },
+      {
+        "name": "debris-door-window",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-door-window.fbx",
+        "size_bytes": 27344
+      },
+      {
+        "name": "race",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/race.fbx",
+        "size_bytes": 111760
+      },
+      {
+        "name": "debris-door",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-door.fbx",
+        "size_bytes": 27072
+      },
+      {
+        "name": "kart-oobi",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/kart-oobi.fbx",
+        "size_bytes": 183168
+      },
+      {
+        "name": "delivery-flat",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/delivery-flat.fbx",
+        "size_bytes": 131216
+      },
+      {
+        "name": "wheel-default",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-default.fbx",
+        "size_bytes": 34144
+      },
+      {
+        "name": "delivery",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/delivery.fbx",
+        "size_bytes": 134544
+      },
+      {
+        "name": "debris-spoiler-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-spoiler-a.fbx",
+        "size_bytes": 25696
+      },
+      {
+        "name": "kart-oozi",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/kart-oozi.fbx",
+        "size_bytes": 175536
+      },
+      {
+        "name": "debris-nut",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-nut.fbx",
+        "size_bytes": 29040
+      },
+      {
+        "name": "cone",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/cone.fbx",
+        "size_bytes": 30144
+      },
+      {
+        "name": "debris-spoiler-b",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-spoiler-b.fbx",
+        "size_bytes": 25488
+      },
+      {
+        "name": "kart-ooli",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/kart-ooli.fbx",
+        "size_bytes": 170512
+      },
+      {
+        "name": "debris-plate-small-b",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-plate-small-b.fbx",
+        "size_bytes": 26096
+      },
+      {
+        "name": "debris-tire",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-tire.fbx",
+        "size_bytes": 33184
+      },
+      {
+        "name": "firetruck",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/firetruck.fbx",
+        "size_bytes": 136512
+      },
+      {
+        "name": "tractor",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/tractor.fbx",
+        "size_bytes": 124288
+      },
+      {
+        "name": "wheel-tractor-front",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-tractor-front.fbx",
+        "size_bytes": 35776
+      },
+      {
+        "name": "wheel-tractor-back",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-tractor-back.fbx",
+        "size_bytes": 39648
+      },
+      {
+        "name": "debris-plate-small-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-plate-small-a.fbx",
+        "size_bytes": 27600
+      },
+      {
+        "name": "wheel-tractor-dark-back",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-tractor-dark-back.fbx",
+        "size_bytes": 38976
+      },
+      {
+        "name": "van",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/van.fbx",
+        "size_bytes": 115488
+      },
+      {
+        "name": "wheel-tractor-dark-front",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-tractor-dark-front.fbx",
+        "size_bytes": 35808
+      },
+      {
+        "name": "wheel-dark",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-dark.fbx",
+        "size_bytes": 35456
+      },
+      {
+        "name": "police",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/police.fbx",
+        "size_bytes": 125744
+      },
+      {
+        "name": "box",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/box.fbx",
+        "size_bytes": 29392
+      },
+      {
+        "name": "debris-bolt",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-bolt.fbx",
+        "size_bytes": 28752
+      },
+      {
+        "name": "tractor-shovel",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/tractor-shovel.fbx",
+        "size_bytes": 141184
+      },
+      {
+        "name": "cone-flat",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/cone-flat.fbx",
+        "size_bytes": 30176
+      },
+      {
+        "name": "debris-bumper",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-bumper.fbx",
+        "size_bytes": 26448
+      },
+      {
+        "name": "debris-plate-b",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-plate-b.fbx",
+        "size_bytes": 26128
+      },
+      {
+        "name": "truck-flat",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/truck-flat.fbx",
+        "size_bytes": 124896
+      },
+      {
+        "name": "debris-drivetrain",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-drivetrain.fbx",
+        "size_bytes": 34432
+      },
+      {
+        "name": "sedan",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/sedan.fbx",
+        "size_bytes": 114272
+      },
+      {
+        "name": "sedan-sports",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/sedan-sports.fbx",
+        "size_bytes": 120400
+      },
+      {
+        "name": "truck",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/truck.fbx",
+        "size_bytes": 116272
+      },
+      {
+        "name": "wheel-truck",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/wheel-truck.fbx",
+        "size_bytes": 37696
+      },
+      {
+        "name": "debris-plate-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/debris-plate-a.fbx",
+        "size_bytes": 28480
+      },
+      {
+        "name": "tractor-police",
+        "format": "FBX",
+        "relative_path": "assets/kenney/car_kit/Models/FBX format/tractor-police.fbx",
+        "size_bytes": 134096
+      },
+      {
+        "name": "debris-door-window",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-door-window.obj",
+        "size_bytes": 6544
+      },
+      {
+        "name": "race",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/race.obj",
+        "size_bytes": 114634
+      },
+      {
+        "name": "debris-door",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-door.obj",
+        "size_bytes": 6025
+      },
+      {
+        "name": "kart-oobi",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/kart-oobi.obj",
+        "size_bytes": 228964
+      },
+      {
+        "name": "delivery-flat",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/delivery-flat.obj",
+        "size_bytes": 146607
+      },
+      {
+        "name": "wheel-default",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-default.obj",
+        "size_bytes": 30740
+      },
+      {
+        "name": "delivery",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/delivery.obj",
+        "size_bytes": 150655
+      },
+      {
+        "name": "debris-spoiler-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-spoiler-a.obj",
+        "size_bytes": 3396
+      },
+      {
+        "name": "debris-nut",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-nut.obj",
+        "size_bytes": 2859
+      },
+      {
+        "name": "cone",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/cone.obj",
+        "size_bytes": 15074
+      },
+      {
+        "name": "kart-oozi",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/kart-oozi.obj",
+        "size_bytes": 214057
+      },
+      {
+        "name": "debris-spoiler-b",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-spoiler-b.obj",
+        "size_bytes": 6020
+      },
+      {
+        "name": "ambulance",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/ambulance.obj",
+        "size_bytes": 167543
+      },
+      {
+        "name": "kart-oodi",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/kart-oodi.obj",
+        "size_bytes": 214785
+      },
+      {
+        "name": "debris-drivetrain-axle",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-drivetrain-axle.obj",
+        "size_bytes": 16587
+      },
+      {
+        "name": "suv",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/suv.obj",
+        "size_bytes": 151422
+      },
+      {
+        "name": "garbage-truck",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/garbage-truck.obj",
+        "size_bytes": 185669
+      },
+      {
+        "name": "taxi",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/taxi.obj",
+        "size_bytes": 119914
+      },
+      {
+        "name": "suv-luxury",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/suv-luxury.obj",
+        "size_bytes": 116256
+      },
+      {
+        "name": "wheel-racing",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-racing.obj",
+        "size_bytes": 30953
+      },
+      {
+        "name": "hatchback-sports",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/hatchback-sports.obj",
+        "size_bytes": 124224
+      },
+      {
+        "name": "race-future",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/race-future.obj",
+        "size_bytes": 119952
+      },
+      {
+        "name": "kart-oopi",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/kart-oopi.obj",
+        "size_bytes": 214777
+      },
+      {
+        "name": "police",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/police.obj",
+        "size_bytes": 136650
+      },
+      {
+        "name": "box",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/box.obj",
+        "size_bytes": 12281
+      },
+      {
+        "name": "debris-bolt",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-bolt.obj",
+        "size_bytes": 2660
+      },
+      {
+        "name": "cone-flat",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/cone-flat.obj",
+        "size_bytes": 14857
+      },
+      {
+        "name": "tractor-shovel",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/tractor-shovel.obj",
+        "size_bytes": 180954
+      },
+      {
+        "name": "debris-bumper",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-bumper.obj",
+        "size_bytes": 8199
+      },
+      {
+        "name": "truck-flat",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/truck-flat.obj",
+        "size_bytes": 148072
+      },
+      {
+        "name": "debris-plate-b",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-plate-b.obj",
+        "size_bytes": 3952
+      },
+      {
+        "name": "debris-drivetrain",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-drivetrain.obj",
+        "size_bytes": 33415
+      },
+      {
+        "name": "sedan",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/sedan.obj",
+        "size_bytes": 118672
+      },
+      {
+        "name": "truck",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/truck.obj",
+        "size_bytes": 124865
+      },
+      {
+        "name": "sedan-sports",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/sedan-sports.obj",
+        "size_bytes": 122016
+      },
+      {
+        "name": "debris-plate-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-plate-a.obj",
+        "size_bytes": 3021
+      },
+      {
+        "name": "wheel-truck",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-truck.obj",
+        "size_bytes": 41109
+      },
+      {
+        "name": "tractor-police",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/tractor-police.obj",
+        "size_bytes": 159161
+      },
+      {
+        "name": "kart-ooli",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/kart-ooli.obj",
+        "size_bytes": 215476
+      },
+      {
+        "name": "debris-tire",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-tire.obj",
+        "size_bytes": 24126
+      },
+      {
+        "name": "firetruck",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/firetruck.obj",
+        "size_bytes": 169890
+      },
+      {
+        "name": "debris-plate-small-b",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-plate-small-b.obj",
+        "size_bytes": 4030
+      },
+      {
+        "name": "wheel-tractor-front",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-tractor-front.obj",
+        "size_bytes": 32018
+      },
+      {
+        "name": "tractor",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/tractor.obj",
+        "size_bytes": 144142
+      },
+      {
+        "name": "wheel-tractor-back",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-tractor-back.obj",
+        "size_bytes": 42420
+      },
+      {
+        "name": "debris-plate-small-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/debris-plate-small-a.obj",
+        "size_bytes": 2170
+      },
+      {
+        "name": "wheel-tractor-dark-back",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-tractor-dark-back.obj",
+        "size_bytes": 40989
+      },
+      {
+        "name": "van",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/van.obj",
+        "size_bytes": 122916
+      },
+      {
+        "name": "wheel-dark",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-dark.obj",
+        "size_bytes": 31575
+      },
+      {
+        "name": "wheel-tractor-dark-front",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/car_kit/Models/OBJ format/wheel-tractor-dark-front.obj",
+        "size_bytes": 31917
+      },
+      {
+        "name": "van",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/van.glb",
+        "size_bytes": 175664
+      },
+      {
+        "name": "wheel-tractor-dark-front",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-tractor-dark-front.glb",
+        "size_bytes": 29156
+      },
+      {
+        "name": "wheel-dark",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-dark.glb",
+        "size_bytes": 29116
+      },
+      {
+        "name": "kart-ooli",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/kart-ooli.glb",
+        "size_bytes": 233380
+      },
+      {
+        "name": "debris-plate-small-b",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-plate-small-b.glb",
+        "size_bytes": 5392
+      },
+      {
+        "name": "firetruck",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/firetruck.glb",
+        "size_bytes": 232448
+      },
+      {
+        "name": "debris-tire",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-tire.glb",
+        "size_bytes": 26548
+      },
+      {
+        "name": "wheel-tractor-front",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-tractor-front.glb",
+        "size_bytes": 29140
+      },
+      {
+        "name": "tractor",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/tractor.glb",
+        "size_bytes": 175960
+      },
+      {
+        "name": "wheel-tractor-back",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-tractor-back.glb",
+        "size_bytes": 36628
+      },
+      {
+        "name": "wheel-tractor-dark-back",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-tractor-dark-back.glb",
+        "size_bytes": 36644
+      },
+      {
+        "name": "debris-plate-small-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-plate-small-a.glb",
+        "size_bytes": 4224
+      },
+      {
+        "name": "debris-bumper",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-bumper.glb",
+        "size_bytes": 11312
+      },
+      {
+        "name": "debris-drivetrain",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-drivetrain.glb",
+        "size_bytes": 36896
+      },
+      {
+        "name": "truck-flat",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/truck-flat.glb",
+        "size_bytes": 207424
+      },
+      {
+        "name": "debris-plate-b",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-plate-b.glb",
+        "size_bytes": 5380
+      },
+      {
+        "name": "sedan",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/sedan.glb",
+        "size_bytes": 172216
+      },
+      {
+        "name": "sedan-sports",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/sedan-sports.glb",
+        "size_bytes": 177676
+      },
+      {
+        "name": "truck",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/truck.glb",
+        "size_bytes": 176360
+      },
+      {
+        "name": "debris-plate-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-plate-a.glb",
+        "size_bytes": 5048
+      },
+      {
+        "name": "wheel-truck",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-truck.glb",
+        "size_bytes": 34304
+      },
+      {
+        "name": "tractor-police",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/tractor-police.glb",
+        "size_bytes": 196308
+      },
+      {
+        "name": "police",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/police.glb",
+        "size_bytes": 195336
+      },
+      {
+        "name": "debris-bolt",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-bolt.glb",
+        "size_bytes": 4768
+      },
+      {
+        "name": "box",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/box.glb",
+        "size_bytes": 14108
+      },
+      {
+        "name": "cone-flat",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/cone-flat.glb",
+        "size_bytes": 16712
+      },
+      {
+        "name": "tractor-shovel",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/tractor-shovel.glb",
+        "size_bytes": 222584
+      },
+      {
+        "name": "garbage-truck",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/garbage-truck.glb",
+        "size_bytes": 268224
+      },
+      {
+        "name": "suv-luxury",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/suv-luxury.glb",
+        "size_bytes": 175908
+      },
+      {
+        "name": "taxi",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/taxi.glb",
+        "size_bytes": 175608
+      },
+      {
+        "name": "hatchback-sports",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/hatchback-sports.glb",
+        "size_bytes": 197804
+      },
+      {
+        "name": "wheel-racing",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-racing.glb",
+        "size_bytes": 29120
+      },
+      {
+        "name": "kart-oopi",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/kart-oopi.glb",
+        "size_bytes": 236196
+      },
+      {
+        "name": "race-future",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/race-future.glb",
+        "size_bytes": 173164
+      },
+      {
+        "name": "ambulance",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/ambulance.glb",
+        "size_bytes": 233612
+      },
+      {
+        "name": "kart-oodi",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/kart-oodi.glb",
+        "size_bytes": 230984
+      },
+      {
+        "name": "suv",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/suv.glb",
+        "size_bytes": 207572
+      },
+      {
+        "name": "debris-drivetrain-axle",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-drivetrain-axle.glb",
+        "size_bytes": 18740
+      },
+      {
+        "name": "delivery-flat",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/delivery-flat.glb",
+        "size_bytes": 214456
+      },
+      {
+        "name": "wheel-default",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/wheel-default.glb",
+        "size_bytes": 26820
+      },
+      {
+        "name": "debris-spoiler-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-spoiler-a.glb",
+        "size_bytes": 5616
+      },
+      {
+        "name": "delivery",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/delivery.glb",
+        "size_bytes": 240264
+      },
+      {
+        "name": "kart-oozi",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/kart-oozi.glb",
+        "size_bytes": 240776
+      },
+      {
+        "name": "debris-nut",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-nut.glb",
+        "size_bytes": 4744
+      },
+      {
+        "name": "cone",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/cone.glb",
+        "size_bytes": 16696
+      },
+      {
+        "name": "debris-spoiler-b",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-spoiler-b.glb",
+        "size_bytes": 8596
+      },
+      {
+        "name": "race",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/race.glb",
+        "size_bytes": 167272
+      },
+      {
+        "name": "debris-door-window",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-door-window.glb",
+        "size_bytes": 7576
+      },
+      {
+        "name": "debris-door",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/debris-door.glb",
+        "size_bytes": 7052
+      },
+      {
+        "name": "kart-oobi",
+        "format": "GLB",
+        "relative_path": "assets/kenney/car_kit/Models/GLB format/kart-oobi.glb",
+        "size_bytes": 251516
+      }
+    ],
+    "space_structures": [
+      {
+        "name": "corridor-junction",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-junction.fbx",
+        "size_bytes": 35856
+      },
+      {
+        "name": "gate-door-window",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/gate-door-window.fbx",
+        "size_bytes": 83120
+      },
+      {
+        "name": "cables",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/cables.fbx",
+        "size_bytes": 42640
+      },
+      {
+        "name": "room-large",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-large.fbx",
+        "size_bytes": 324816
+      },
+      {
+        "name": "gate",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/gate.fbx",
+        "size_bytes": 38928
+      },
+      {
+        "name": "template-floor-layer",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor-layer.fbx",
+        "size_bytes": 36832
+      },
+      {
+        "name": "corridor",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor.fbx",
+        "size_bytes": 42240
+      },
+      {
+        "name": "corridor-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-wide.fbx",
+        "size_bytes": 89264
+      },
+      {
+        "name": "room-small",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-small.fbx",
+        "size_bytes": 159328
+      },
+      {
+        "name": "stairs-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/stairs-wide.fbx",
+        "size_bytes": 90224
+      },
+      {
+        "name": "corridor-wide-end",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-wide-end.fbx",
+        "size_bytes": 122576
+      },
+      {
+        "name": "room-small-variation",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-small-variation.fbx",
+        "size_bytes": 133072
+      },
+      {
+        "name": "template-floor",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor.fbx",
+        "size_bytes": 24656
+      },
+      {
+        "name": "corridor-wide-intersection",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-wide-intersection.fbx",
+        "size_bytes": 29168
+      },
+      {
+        "name": "corridor-end",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-end.fbx",
+        "size_bytes": 51600
+      },
+      {
+        "name": "corridor-corner",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-corner.fbx",
+        "size_bytes": 56304
+      },
+      {
+        "name": "room-wide-variation",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-wide-variation.fbx",
+        "size_bytes": 301536
+      },
+      {
+        "name": "corridor-wide-corner",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-wide-corner.fbx",
+        "size_bytes": 74720
+      },
+      {
+        "name": "template-corner",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-corner.fbx",
+        "size_bytes": 54784
+      },
+      {
+        "name": "template-floor-layer-raised",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor-layer-raised.fbx",
+        "size_bytes": 119952
+      },
+      {
+        "name": "template-detail",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-detail.fbx",
+        "size_bytes": 38000
+      },
+      {
+        "name": "room-corner",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-corner.fbx",
+        "size_bytes": 198688
+      },
+      {
+        "name": "template-floor-detail",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor-detail.fbx",
+        "size_bytes": 26928
+      },
+      {
+        "name": "template-wall-half",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-wall-half.fbx",
+        "size_bytes": 26016
+      },
+      {
+        "name": "template-wall-corner",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-wall-corner.fbx",
+        "size_bytes": 26144
+      },
+      {
+        "name": "template-wall-stairs",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-wall-stairs.fbx",
+        "size_bytes": 29312
+      },
+      {
+        "name": "gate-door",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/gate-door.fbx",
+        "size_bytes": 80848
+      },
+      {
+        "name": "room-large-variation",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-large-variation.fbx",
+        "size_bytes": 288608
+      },
+      {
+        "name": "corridor-transition",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-transition.fbx",
+        "size_bytes": 66720
+      },
+      {
+        "name": "template-wall-detail-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-wall-detail-a.fbx",
+        "size_bytes": 52992
+      },
+      {
+        "name": "template-floor-big",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor-big.fbx",
+        "size_bytes": 38384
+      },
+      {
+        "name": "room-wide",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/room-wide.fbx",
+        "size_bytes": 272080
+      },
+      {
+        "name": "template-floor-layer-hole",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor-layer-hole.fbx",
+        "size_bytes": 122336
+      },
+      {
+        "name": "template-wall",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-wall.fbx",
+        "size_bytes": 32976
+      },
+      {
+        "name": "corridor-intersection",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-intersection.fbx",
+        "size_bytes": 28960
+      },
+      {
+        "name": "gate-lasers",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/gate-lasers.fbx",
+        "size_bytes": 140368
+      },
+      {
+        "name": "template-floor-detail-a",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-floor-detail-a.fbx",
+        "size_bytes": 24672
+      },
+      {
+        "name": "corridor-wide-junction",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/corridor-wide-junction.fbx",
+        "size_bytes": 59664
+      },
+      {
+        "name": "template-wall-top",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/template-wall-top.fbx",
+        "size_bytes": 31728
+      },
+      {
+        "name": "stairs",
+        "format": "FBX",
+        "relative_path": "assets/kenney/modular_space/Models/FBX format/stairs.fbx",
+        "size_bytes": 89360
+      },
+      {
+        "name": "template-floor",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor.obj",
+        "size_bytes": 541
+      },
+      {
+        "name": "corridor-wide-intersection",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-wide-intersection.obj",
+        "size_bytes": 18062
+      },
+      {
+        "name": "corridor-end",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-end.obj",
+        "size_bytes": 94404
+      },
+      {
+        "name": "corridor-corner",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-corner.obj",
+        "size_bytes": 86635
+      },
+      {
+        "name": "room-wide-variation",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-wide-variation.obj",
+        "size_bytes": 813549
+      },
+      {
+        "name": "template-floor-layer-raised",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor-layer-raised.obj",
+        "size_bytes": 230465
+      },
+      {
+        "name": "corridor-wide-corner",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-wide-corner.obj",
+        "size_bytes": 153287
+      },
+      {
+        "name": "template-corner",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-corner.obj",
+        "size_bytes": 82931
+      },
+      {
+        "name": "template-detail",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-detail.obj",
+        "size_bytes": 25973
+      },
+      {
+        "name": "room-corner",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-corner.obj",
+        "size_bytes": 507861
+      },
+      {
+        "name": "corridor-junction",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-junction.obj",
+        "size_bytes": 38656
+      },
+      {
+        "name": "gate-door-window",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/gate-door-window.obj",
+        "size_bytes": 106621
+      },
+      {
+        "name": "cables",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/cables.obj",
+        "size_bytes": 31282
+      },
+      {
+        "name": "gate",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/gate.obj",
+        "size_bytes": 52232
+      },
+      {
+        "name": "template-floor-layer",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor-layer.obj",
+        "size_bytes": 37832
+      },
+      {
+        "name": "room-large",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-large.obj",
+        "size_bytes": 887121
+      },
+      {
+        "name": "corridor",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor.obj",
+        "size_bytes": 60776
+      },
+      {
+        "name": "room-small",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-small.obj",
+        "size_bytes": 398951
+      },
+      {
+        "name": "corridor-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-wide.obj",
+        "size_bytes": 171548
+      },
+      {
+        "name": "stairs-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/stairs-wide.obj",
+        "size_bytes": 238718
+      },
+      {
+        "name": "corridor-wide-end",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-wide-end.obj",
+        "size_bytes": 267688
+      },
+      {
+        "name": "room-small-variation",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-small-variation.obj",
+        "size_bytes": 342032
+      },
+      {
+        "name": "template-wall-detail-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-wall-detail-a.obj",
+        "size_bytes": 69670
+      },
+      {
+        "name": "corridor-transition",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-transition.obj",
+        "size_bytes": 148022
+      },
+      {
+        "name": "room-wide",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-wide.obj",
+        "size_bytes": 721519
+      },
+      {
+        "name": "template-floor-big",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor-big.obj",
+        "size_bytes": 28268
+      },
+      {
+        "name": "corridor-intersection",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-intersection.obj",
+        "size_bytes": 17346
+      },
+      {
+        "name": "template-floor-layer-hole",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor-layer-hole.obj",
+        "size_bytes": 238387
+      },
+      {
+        "name": "template-wall",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-wall.obj",
+        "size_bytes": 29021
+      },
+      {
+        "name": "gate-lasers",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/gate-lasers.obj",
+        "size_bytes": 112299
+      },
+      {
+        "name": "template-floor-detail-a",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor-detail-a.obj",
+        "size_bytes": 520
+      },
+      {
+        "name": "template-wall-top",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-wall-top.obj",
+        "size_bytes": 26074
+      },
+      {
+        "name": "corridor-wide-junction",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/corridor-wide-junction.obj",
+        "size_bytes": 94441
+      },
+      {
+        "name": "stairs",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/stairs.obj",
+        "size_bytes": 239081
+      },
+      {
+        "name": "template-floor-detail",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-floor-detail.obj",
+        "size_bytes": 1859
+      },
+      {
+        "name": "template-wall-corner",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-wall-corner.obj",
+        "size_bytes": 4066
+      },
+      {
+        "name": "template-wall-half",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-wall-half.obj",
+        "size_bytes": 5672
+      },
+      {
+        "name": "template-wall-stairs",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/template-wall-stairs.obj",
+        "size_bytes": 17927
+      },
+      {
+        "name": "gate-door",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/gate-door.obj",
+        "size_bytes": 101974
+      },
+      {
+        "name": "room-large-variation",
+        "format": "OBJ",
+        "relative_path": "assets/kenney/modular_space/Models/OBJ format/room-large-variation.obj",
+        "size_bytes": 800910
+      },
+      {
+        "name": "template-wall-half",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-wall-half.glb",
+        "size_bytes": 10440
+      },
+      {
+        "name": "template-wall-corner",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-wall-corner.glb",
+        "size_bytes": 7420
+      },
+      {
+        "name": "template-wall-stairs",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-wall-stairs.glb",
+        "size_bytes": 22560
+      },
+      {
+        "name": "gate-door",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/gate-door.glb",
+        "size_bytes": 139124
+      },
+      {
+        "name": "room-large-variation",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-large-variation.glb",
+        "size_bytes": 850016
+      },
+      {
+        "name": "template-floor-detail",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor-detail.glb",
+        "size_bytes": 4232
+      },
+      {
+        "name": "gate-lasers",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/gate-lasers.glb",
+        "size_bytes": 185616
+      },
+      {
+        "name": "template-floor-detail-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor-detail-a.glb",
+        "size_bytes": 2076
+      },
+      {
+        "name": "template-wall-top",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-wall-top.glb",
+        "size_bytes": 31684
+      },
+      {
+        "name": "corridor-wide-junction",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-wide-junction.glb",
+        "size_bytes": 115912
+      },
+      {
+        "name": "stairs",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/stairs.glb",
+        "size_bytes": 265880
+      },
+      {
+        "name": "corridor-transition",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-transition.glb",
+        "size_bytes": 179736
+      },
+      {
+        "name": "template-wall-detail-a",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-wall-detail-a.glb",
+        "size_bytes": 84516
+      },
+      {
+        "name": "template-floor-big",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor-big.glb",
+        "size_bytes": 35536
+      },
+      {
+        "name": "room-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-wide.glb",
+        "size_bytes": 755428
+      },
+      {
+        "name": "template-floor-layer-hole",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor-layer-hole.glb",
+        "size_bytes": 221732
+      },
+      {
+        "name": "template-wall",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-wall.glb",
+        "size_bytes": 38472
+      },
+      {
+        "name": "corridor-intersection",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-intersection.glb",
+        "size_bytes": 25556
+      },
+      {
+        "name": "corridor-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-wide.glb",
+        "size_bytes": 204896
+      },
+      {
+        "name": "room-small",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-small.glb",
+        "size_bytes": 424016
+      },
+      {
+        "name": "stairs-wide",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/stairs-wide.glb",
+        "size_bytes": 266740
+      },
+      {
+        "name": "corridor-wide-end",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-wide-end.glb",
+        "size_bytes": 305796
+      },
+      {
+        "name": "room-small-variation",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-small-variation.glb",
+        "size_bytes": 372640
+      },
+      {
+        "name": "corridor-junction",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-junction.glb",
+        "size_bytes": 50652
+      },
+      {
+        "name": "gate-door-window",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/gate-door-window.glb",
+        "size_bytes": 147544
+      },
+      {
+        "name": "cables",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/cables.glb",
+        "size_bytes": 42612
+      },
+      {
+        "name": "room-large",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-large.glb",
+        "size_bytes": 942712
+      },
+      {
+        "name": "template-floor-layer",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor-layer.glb",
+        "size_bytes": 46292
+      },
+      {
+        "name": "gate",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/gate.glb",
+        "size_bytes": 54556
+      },
+      {
+        "name": "corridor",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor.glb",
+        "size_bytes": 75632
+      },
+      {
+        "name": "template-corner",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-corner.glb",
+        "size_bytes": 94180
+      },
+      {
+        "name": "corridor-wide-corner",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-wide-corner.glb",
+        "size_bytes": 174800
+      },
+      {
+        "name": "template-floor-layer-raised",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor-layer-raised.glb",
+        "size_bytes": 214128
+      },
+      {
+        "name": "template-detail",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-detail.glb",
+        "size_bytes": 33936
+      },
+      {
+        "name": "room-corner",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-corner.glb",
+        "size_bytes": 537432
+      },
+      {
+        "name": "template-floor",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/template-floor.glb",
+        "size_bytes": 2092
+      },
+      {
+        "name": "corridor-wide-intersection",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-wide-intersection.glb",
+        "size_bytes": 26808
+      },
+      {
+        "name": "corridor-end",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-end.glb",
+        "size_bytes": 112528
+      },
+      {
+        "name": "corridor-corner",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/corridor-corner.glb",
+        "size_bytes": 100020
+      },
+      {
+        "name": "room-wide-variation",
+        "format": "GLB",
+        "relative_path": "assets/kenney/modular_space/Models/GLB format/room-wide-variation.glb",
+        "size_bytes": 864552
+      }
+    ],
+    "pbr_textures": [
+      {
+        "name": "asphalt_02_diff_1k",
+        "source": "PolyHaven",
+        "relative_path": "assets/polyhaven/asphalt_02/asphalt_02_diff_1k.jpg"
+      },
+      {
+        "name": "asphalt_02_rough_1k",
+        "source": "PolyHaven",
+        "relative_path": "assets/polyhaven/asphalt_02/asphalt_02_rough_1k.jpg"
+      },
+      {
+        "name": "asphalt_02_nor_gl_1k",
+        "source": "PolyHaven",
+        "relative_path": "assets/polyhaven/asphalt_02/asphalt_02_nor_gl_1k.jpg"
+      },
+      {
+        "name": "aerial_asphalt_01_nor_gl_1k",
+        "source": "PolyHaven",
+        "relative_path": "assets/polyhaven/aerial_asphalt_01/aerial_asphalt_01_nor_gl_1k.jpg"
+      },
+      {
+        "name": "aerial_asphalt_01_rough_1k",
+        "source": "PolyHaven",
+        "relative_path": "assets/polyhaven/aerial_asphalt_01/aerial_asphalt_01_rough_1k.jpg"
+      },
+      {
+        "name": "aerial_asphalt_01_diff_1k",
+        "source": "PolyHaven",
+        "relative_path": "assets/polyhaven/aerial_asphalt_01/aerial_asphalt_01_diff_1k.jpg"
+      },
+      {
+        "name": "Metal032_1K-JPG_Color",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Metal032/Metal032_1K-JPG_Color.jpg"
+      },
+      {
+        "name": "Metal032_1K-JPG_NormalGL",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Metal032/Metal032_1K-JPG_NormalGL.jpg"
+      },
+      {
+        "name": "Metal032_1K-JPG_Displacement",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Metal032/Metal032_1K-JPG_Displacement.jpg"
+      },
+      {
+        "name": "Metal032_1K-JPG_Metalness",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Metal032/Metal032_1K-JPG_Metalness.jpg"
+      },
+      {
+        "name": "Metal032_1K-JPG_NormalDX",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Metal032/Metal032_1K-JPG_NormalDX.jpg"
+      },
+      {
+        "name": "Metal032_1K-JPG_Roughness",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Metal032/Metal032_1K-JPG_Roughness.jpg"
+      },
+      {
+        "name": "Asphalt012_1K-JPG_Opacity",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Asphalt012/Asphalt012_1K-JPG_Opacity.jpg"
+      },
+      {
+        "name": "Asphalt012_1K-JPG_NormalGL",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Asphalt012/Asphalt012_1K-JPG_NormalGL.jpg"
+      },
+      {
+        "name": "Asphalt012_1K-JPG_NormalDX",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Asphalt012/Asphalt012_1K-JPG_NormalDX.jpg"
+      },
+      {
+        "name": "Asphalt012_1K-JPG_Displacement",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Asphalt012/Asphalt012_1K-JPG_Displacement.jpg"
+      },
+      {
+        "name": "Asphalt012_1K-JPG_Color",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Asphalt012/Asphalt012_1K-JPG_Color.jpg"
+      },
+      {
+        "name": "Asphalt012_1K-JPG_Roughness",
+        "source": "ambientCG",
+        "relative_path": "assets/ambientcg/Asphalt012/Asphalt012_1K-JPG_Roughness.jpg"
+      }
+    ]
+  }
+}

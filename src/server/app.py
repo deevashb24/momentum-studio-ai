@@ -341,3 +341,17 @@ async def root_redirect():
         </html>
         """
     )
+
+# Asset Catalog & Inspection Endpoints
+ASSETS_DIR = BASE_DIR.parent / "assets"
+CATALOG_FILE = ASSETS_DIR / "asset_catalog.json"
+
+if ASSETS_DIR.exists():
+    app.mount("/assets", StaticFiles(directory=str(ASSETS_DIR)), name="assets")
+
+@app.get("/api/v1/assets")
+async def get_asset_catalog():
+    if not CATALOG_FILE.exists():
+        raise HTTPException(status_code=404, detail="Asset catalog not generated yet")
+    with open(CATALOG_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
