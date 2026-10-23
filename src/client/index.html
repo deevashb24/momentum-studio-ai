@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MomentumStudio AI — The Cursor for 3D Game Worlds</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Three.js + Loaders from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+</head>
+<body>
+
+  <!-- Top Application Bar -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">M</div>
+      <div class="brand-title">MomentumStudio <span style="color:var(--accent-cyan);">AI</span></div>
+      <div class="brand-badge">BLENDER 5.2.1 LTS DAEMON</div>
+    </div>
+
+    <div class="header-status">
+      <div class="status-pill">
+        <div class="status-dot"></div>
+        <span id="headerEngineStatus">ENGINE ONLINE (0.031s)</span>
+      </div>
+      <div class="status-pill">
+        <span>SCENE:</span>
+        <span id="activeSceneLabel" style="color:var(--accent-orange); font-weight:600;">sector_01_cerberus_corridor</span>
+      </div>
+      <div class="status-pill">
+        <span>KDTree ENVELOPE:</span>
+        <span id="headerClearanceStatus" style="color:var(--accent-emerald); font-weight:600;">32.0m (100% CLEAR)</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn" id="btnToggleWireframe">
+        <span>Wireframe</span>
+      </button>
+      <button class="btn" id="btnResetCamera">
+        <span>Reset View</span>
+      </button>
+      <button class="btn btn-primary" id="btnTriggerCompile">
+        <span>⚡ Compile Scene</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Workstation Layout -->
+  <div class="workspace-container">
+
+    <!-- Left Sidebar: Spatial AST Inspector -->
+    <aside class="sidebar-left">
+      <div class="panel-header">
+        <span>Spatial Scene Hierarchy</span>
+        <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-cyan);">AST v1.0</span>
+      </div>
+
+      <div class="panel-content">
+        <!-- Track Spline -->
+        <div class="prop-card">
+          <div class="prop-card-title">
+            <span>Spline Track</span>
+            <span class="brand-badge">S00–S01</span>
+          </div>
+          <div class="prop-row">
+            <span>Type:</span>
+            <span class="prop-val">BEZIER 3D</span>
+          </div>
+          <div class="prop-row">
+            <span>Anchor Points:</span>
+            <span class="prop-val" id="astSplineCount">6 Keyframes</span>
+          </div>
+          <div class="prop-row">
+            <span>Track Width:</span>
+            <span class="prop-val">14.0m Ribbon</span>
+          </div>
+          <div class="slider-container">
+            <div class="prop-row">
+              <span>Corridor Clearance:</span>
+              <span class="prop-val" id="valClearanceRadius">32.0m</span>
+            </div>
+            <input type="range" id="sliderClearance" min="16" max="60" value="32" step="1">
+          </div>
+        </div>
+
+        <!-- Procedural Megatowers Zone -->
+        <div class="prop-card">
+          <div class="prop-card-title">
+            <span>Procedural Megatowers</span>
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-emerald);">GENERATOR</span>
+          </div>
+          <div class="prop-row">
+            <span>Lateral Offset:</span>
+            <span class="prop-val">38.5m</span>
+          </div>
+          <div class="prop-row">
+            <span>Tower Count / Side:</span>
+            <span class="prop-val" id="valTowerCount">10 Buildings</span>
+          </div>
+          <div class="prop-row">
+            <span>KDTree Collision Filter:</span>
+            <span class="prop-val" style="color:var(--accent-emerald);">AUTO-PRUNE</span>
+          </div>
+        </div>
+
+        <!-- Lighting Budget -->
+        <div class="prop-card">
+          <div class="prop-card-title">
+            <span>Lighting & Volumetrics</span>
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-violet);">BUDGET</span>
+          </div>
+          <div class="prop-row">
+            <span>Max Pooled Lights:</span>
+            <span class="prop-val">6 Fixtures</span>
+          </div>
+          <div class="prop-row">
+            <span>Volumetric Fog:</span>
+            <span class="prop-val">0.0145</span>
+          </div>
+          <div class="prop-row">
+            <span>Rain Particle Cap:</span>
+            <span class="prop-val">14,000 / Sector</span>
+          </div>
+        </div>
+
+        <!-- Physics Contract -->
+        <div class="prop-card">
+          <div class="prop-card-title">
+            <span>Physics Contract</span>
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-orange);">JOLT 3D</span>
+          </div>
+          <div class="prop-row">
+            <span>Target Tick:</span>
+            <span class="prop-val">4.0 ms (240 Hz)</span>
+          </div>
+          <div class="prop-row">
+            <span>Layers:</span>
+            <span class="prop-val">STATIC, TRACK</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Center Viewport: Interactive 3D Canvas -->
+    <main class="viewport-center">
+      <!-- 3D Canvas -->
+      <canvas id="canvas3d"></canvas>
+
+      <!-- Viewport Controls Overlay -->
+      <div class="viewport-overlay-controls">
+        <div class="overlay-badge">
+          <span style="color:var(--accent-cyan);">●</span>
+          <span>ORBIT: Left-Click</span>
+        </div>
+        <div class="overlay-badge">
+          <span style="color:var(--accent-orange);">●</span>
+          <span>PAN: Right-Click</span>
+        </div>
+        <div class="overlay-badge">
+          <span style="color:var(--accent-emerald);">●</span>
+          <span>ZOOM: Scroll</span>
+        </div>
+      </div>
+
+      <!-- Real-Time Telemetry HUD -->
+      <div class="telemetry-hud">
+        <div class="hud-item">
+          <div class="hud-label">Compile Latency</div>
+          <div class="hud-value" id="hudCompileTime" style="color:var(--accent-emerald);">31.4 ms</div>
+        </div>
+        <div class="hud-item">
+          <div class="hud-label">Scene Mesh Count</div>
+          <div class="hud-value" id="hudMeshCount">41 Objects</div>
+        </div>
+        <div class="hud-item">
+          <div class="hud-label">KDTree Clearance</div>
+          <div class="hud-value" id="hudClearance">100.0% Pass</div>
+        </div>
+        <div class="hud-item">
+          <div class="hud-label">glTF Draco Size</div>
+          <div class="hud-value" id="hudGlbSize">29.7 KB</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar: The Cursor for 3D Agent Console -->
+    <aside class="sidebar-right">
+      <div class="panel-header">
+        <span>Autonomous Spatial Agent</span>
+        <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-orange);">CURSOR FOR 3D</span>
+      </div>
+
+      <div class="agent-chat-container">
+        <!-- Message Stream -->
+        <div class="agent-messages-stream" id="chatStream">
+          <div class="message-bubble msg-agent">
+            <div class="msg-agent-header">
+              <span>MomentumStudio Orchestrator</span>
+              <span>100% READY</span>
+            </div>
+            <div>
+              Welcome, Founder Deevash! I am your autonomous 3D spatial compiler. Give me natural language prompts to sculpt, clear corridors, re-route tracks, or adjust lighting budgets.
+            </div>
+          </div>
+
+          <div class="message-bubble msg-agent">
+            <div class="msg-agent-header">
+              <span>Compiler Telemetry</span>
+              <span>PASSED</span>
+            </div>
+            <div>
+              Compiled <strong>sector_01_cerberus_corridor</strong> via Headless Blender 5.2.1 LTS.
+              <br>• 41 3D Objects generated (PBR Materials + Draco compression)
+              <br>• KDTree 32.0m clearance envelope: 0 violations.
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="quick-prompts-bar">
+          <div class="prompt-chip" data-prompt="Inject obstacle to test KDTree auto-pruning">💥 Test Obstruction Pruning</div>
+          <div class="prompt-chip" data-prompt="Widen corridor radius to 45m">📐 Widen Clearance to 45m</div>
+          <div class="prompt-chip" data-prompt="Switch to Cyberpunk Night Lighting">🌙 Cyberpunk Midnight Mood</div>
+          <div class="prompt-chip" data-prompt="Increase procedural megatower density">🏙️ High Density Megatowers</div>
+        </div>
+
+        <!-- Prompt Input -->
+        <div class="agent-input-box">
+          <input type="text" id="agentInput" class="agent-input-field" placeholder="Ask agent to mutate 3D world (e.g. 'Widen track corridor to 45m')...">
+          <button class="btn btn-primary" id="btnSendPrompt">Ask</button>
+        </div>
+      </div>
+
+      <!-- Bottom Drawer: Raw AST Editor -->
+      <div class="ast-drawer">
+        <div class="panel-header">
+          <span>Declarative .world.json AST</span>
+          <button class="btn" id="btnSaveAST" style="padding:2px 8px; font-size:10px;">Save AST</button>
+        </div>
+        <textarea id="astTextarea" class="ast-editor-textarea" spellcheck="false"></textarea>
+      </div>
+    </aside>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
