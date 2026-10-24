@@ -233,35 +233,79 @@ def compile_world_chunk(world_data: dict, output_glb: str) -> dict:
         retained_modules += int(safe_group(group))
 
     for zone in world_data.get("procedural_zones", []):
-        if zone.get("generator") != "PROCEDURAL_MEGATOWERS":
-            continue
+        gen = zone.get("generator")
         params = zone.get("parameters", {})
+        if zone.get("anchor_spline") not in paths:
+            continue
         path = paths[zone["anchor_spline"]]
-        radius = next(s.get("corridor_clearance_radius_m", 32.0) for s in world_data["splines"] if s["id"] == zone["anchor_spline"])
-        count = max(0, min(int(params.get("tower_count_per_side", 8)), 500))
-        width, depth = float(params.get("width_m", 24.0)), float(params.get("depth_m", 32.0))
-        for side in (-1, 1):
-            for i in range(count):
-                point, tangent, right = path.at((i+0.5)*path.length/max(count, 1))
-                height = float(params.get("height_min_m", 90.0)) + (i % 4)*8.0
-                offset = max(float(params.get("lateral_clearance_m", 38.5)), radius + math.hypot(width, depth)/2 + 12.0)
-                if params.get("inject_obstruction_test") and i == 2 and side == 1:
-                    offset = 0.0
-                base = add(point, mul(right, side*offset))
+        radius = next((s.get("corridor_clearance_radius_m", 32.0) for s in world_data["splines"] if s["id"] == zone["anchor_spline"]), 32.0)
+
+        if gen == "PROCEDURAL_MEGATOWERS":
+            count = max(0, min(int(params.get("tower_count_per_side", 8)), 500))
+            width, depth = float(params.get("width_m", 24.0)), float(params.get("depth_m", 32.0))
+            for side in (-1, 1):
+                for i in range(count):
+                    point, tangent, right = path.at((i+0.5)*path.length/max(count, 1))
+                    height = float(params.get("height_min_m", 90.0)) + (i % 4)*8.0
+                    offset = max(float(params.get("lateral_clearance_m", 38.5)), radius + math.hypot(width, depth)/2 + 12.0)
+                    if params.get("inject_obstruction_test") and i == 2 and side == 1:
+                        offset = 0.0
+                    base = add(point, mul(right, side*offset))
+                    bm = bmesh.new()
+                    bmesh.ops.create_cube(bm, size=1.0)
+                    bmesh.ops.scale(bm, vec=Vector((width, depth, height)), verts=bm.verts)
+                    mesh = bpy.data.meshes.new(f"TowerMesh_{zone['id']}_{side}_{i}")
+                    bm.to_mesh(mesh)
+                    bm.free()
+                    tower = bpy.data.objects.new(f"Tower_{zone['id']}_{side}_{i}", mesh)
+                    tower.location = to_blender(add(base, (0, height/2, 0)))
+                    tower.rotation_euler.z = math.atan2(tangent[0], tangent[2])
+                    mesh.materials.append(compiled_materials.get(zone.get("material_recipe_id"), mat_concrete))
+                    root_col.objects.link(tower)
+                    if safe_group([tower]):
+                        group = snapper.snap("industrial_megatowers", "detail-tank", add(base, (0, height, 0)), tangent, min(width, depth)*0.35)
+                        retained_modules += int(safe_group(group))
+
+        elif gen == "TRANSIT_TUBES":
+            tube_radius = float(params.get("tube_radius_m", 4.5))
+            tube_count = max(2, min(int(path.length // 60), 40))
+            offset = radius + tube_radius + 14.0
+            for side in (-1, 1):
+                for i in range(tube_count):
+                    point, tangent, right = path.at((i + 0.5) * path.length / max(tube_count, 1))
+                    pos = add(point, add(mul(right, side * offset), (0, 16.0, 0)))
+                    bm = bmesh.new()
+                    bmesh.ops.create_cube(bm, size=1.0)
+                    bmesh.ops.scale(bm, vec=Vector((tube_radius * 1.6, 45.0, tube_radius * 1.6)), verts=bm.verts)
+                    mesh = bpy.data.meshes.new(f"TransitTubeMesh_{zone['id']}_{side}_{i}")
+                    bm.to_mesh(mesh)
+                    bm.free()
+                    tube = bpy.data.objects.new(f"TransitTube_{zone['id']}_{side}_{i}", mesh)
+                    tube.location = to_blender(pos)
+                    tube.rotation_euler.z = math.atan2(tangent[0], tangent[2])
+                    mesh.materials.append(compiled_materials.get(zone.get("material_recipe_id"), mat_neon_cyan))
+                    root_col.objects.link(tube)
+                    safe_group([tube])
+
+        elif gen == "NEON_BILLBOARDS":
+            billboard_count = max(1, min(int(path.length // 120), 20))
+            offset = radius + 10.0
+            for i in range(billboard_count):
+                side = -1 if i % 2 == 0 else 1
+                point, tangent, right = path.at((i + 0.3) * path.length / max(billboard_count, 1))
+                pos = add(point, add(mul(right, side * offset), (0, 18.0, 0)))
                 bm = bmesh.new()
                 bmesh.ops.create_cube(bm, size=1.0)
-                bmesh.ops.scale(bm, vec=Vector((width, depth, height)), verts=bm.verts)
-                mesh = bpy.data.meshes.new(f"TowerMesh_{zone['id']}_{side}_{i}")
+                bmesh.ops.scale(bm, vec=Vector((1.2, 16.0, 8.0)), verts=bm.verts)
+                mesh = bpy.data.meshes.new(f"BillboardMesh_{zone['id']}_{i}")
                 bm.to_mesh(mesh)
                 bm.free()
-                tower = bpy.data.objects.new(f"Tower_{zone['id']}_{side}_{i}", mesh)
-                tower.location = to_blender(add(base, (0, height/2, 0)))
-                tower.rotation_euler.z = math.atan2(tangent[0], tangent[2])
-                mesh.materials.append(compiled_materials.get(zone.get("material_recipe_id"), mat_concrete))
-                root_col.objects.link(tower)
-                if safe_group([tower]):
-                    group = snapper.snap("industrial_megatowers", "detail-tank", add(base, (0, height, 0)), tangent, min(width, depth)*0.35)
-                    retained_modules += int(safe_group(group))
+                bb = bpy.data.objects.new(f"Billboard_{zone['id']}_{i}", mesh)
+                bb.location = to_blender(pos)
+                bb.rotation_euler.z = math.atan2(tangent[0], tangent[2])
+                mesh.materials.append(compiled_materials.get(zone.get("material_recipe_id"), mat_neon_orange))
+                root_col.objects.link(bb)
+                safe_group([bb])
 
     os.makedirs(os.path.dirname(os.path.abspath(output_glb)), exist_ok=True)
     # Godot does not import Draco-compressed geometry. Export the same scene

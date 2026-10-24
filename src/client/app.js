@@ -481,3 +481,46 @@ document.querySelectorAll(".btn-recipe").forEach((btn) => {
     applyShaderRecipe(recipe, recipe === "BrutalistConcrete" ? "towers" : "track");
   });
 });
+
+// Jolt Physics Audit Handler
+const btnAuditPhysics = document.getElementById("btnAuditPhysics");
+const hudPhysics = document.getElementById("hudPhysics");
+
+async function triggerPhysicsAudit(distance) {
+  const reqDist = distance || 900.0;
+  if (hudPhysics) {
+    hudPhysics.textContent = "Auditing...";
+    hudPhysics.style.color = "var(--accent-orange)";
+  }
+  try {
+    const res = await fetch("/api/v1/physics/audit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        scene_name: currentSceneName,
+        distance_m: reqDist,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (hudPhysics) {
+        hudPhysics.textContent = data.distance_driven_m.toFixed(1) + "m (" + data.max_physics_tick_ms.toFixed(2) + "ms)";
+        hudPhysics.style.color = data.status === "PASSED" ? "var(--accent-emerald)" : "var(--accent-rose)";
+      }
+      appendMessage(
+        "agent",
+        "🚗 <strong>Godot 4.7.1 Jolt Physics Audit</strong>: " + data.status + " — " + data.reason + ". Driven " + data.distance_driven_m.toFixed(1) + "m over " + data.collision_meshes + " meshes (Max tick: " + data.max_physics_tick_ms.toFixed(3) + "ms / 4.0ms budget)."
+      );
+    }
+  } catch (err) {
+    console.error("Physics audit error:", err);
+    if (hudPhysics) {
+      hudPhysics.textContent = "Audit Error";
+      hudPhysics.style.color = "var(--accent-rose)";
+    }
+  }
+}
+
+if (btnAuditPhysics) {
+  btnAuditPhysics.addEventListener("click", () => triggerPhysicsAudit(900.0));
+}

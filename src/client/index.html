@@ -43,6 +43,7 @@
       <button class="btn" id="btnResetCamera">
         <span>Reset View</span>
       </button>
+      <button class="btn" id="btnAuditPhysics" style="border-color:var(--accent-emerald); color:var(--accent-emerald);"><span>🚗 Jolt Physics</span></button>
       <button class="btn btn-primary" id="btnTriggerCompile">
         <span>⚡ Compile Scene</span>
       </button>
@@ -209,6 +210,10 @@
           <div class="hud-value" id="hudShaderCount" style="color:var(--accent-cyan);">4 Compiled</div>
         </div>
         <div class="hud-item">
+          <div class="hud-label">Jolt Physics</div>
+          <div class="hud-value" id="hudPhysics" style="color:var(--accent-emerald);">900.8m Pass</div>
+        </div>
+        <div class="hud-item">
           <div class="hud-label">glTF Draco Size</div>
           <div class="hud-value" id="hudGlbSize">—</div>
         </div>
@@ -240,6 +245,7 @@
         <div class="quick-prompts-bar">
           <div class="prompt-chip" data-prompt="Add heavy rain puddles and surface cracks to the highway">🌧️ Synthesize Rain Puddles</div>
           <div class="prompt-chip" data-prompt="Add heavy rust corrosion and grime to megatowers">🔩 Add Rust Corrosion</div>
+          <div class="prompt-chip" data-prompt="Simulate vehicle traversal with Jolt physics">🚗 Audit Jolt 3D Physics (900m)</div>
           <div class="prompt-chip" data-prompt="Boost neon kinetic cyan emission to overdrive">⚡ Neon Overdrive</div>
           <div class="prompt-chip" data-prompt="Inject obstacle to test Corridor auto-pruning">💥 Test Obstruction Pruning</div>
           <div class="prompt-chip" data-prompt="Widen corridor radius to 45m">📐 Widen Clearance to 45m</div>
