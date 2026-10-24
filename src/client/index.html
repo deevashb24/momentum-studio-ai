@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MomentumStudio AI — The Cursor for 3D Game Worlds</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/OrbitControls.js"></script>
+  <script src="vendor/GLTFLoader.js"></script>
+  <script src="vendor/DRACOLoader.js"></script>
 </head>
 <body>
+  <div id="engineStatus" role="status" style="display:none;position:fixed;bottom:16px;left:16px;z-index:1000;background:#331c10;color:#ffcf99;padding:12px;border-radius:8px">Engine unavailable. Start scripts/run_desktop.sh from the project folder.</div>
 
   <!-- Top Application Bar -->
   <header>
@@ -23,15 +24,15 @@
     <div class="header-status">
       <div class="status-pill">
         <div class="status-dot"></div>
-        <span id="headerEngineStatus">ENGINE ONLINE (0.039s)</span>
+        <span id="headerEngineStatus">ENGINE CONNECTING</span>
       </div>
       <div class="status-pill">
         <span>SCENE:</span>
         <span id="activeSceneLabel" style="color:var(--accent-orange); font-weight:600;">sector_01_cerberus_corridor</span>
       </div>
       <div class="status-pill">
-        <span>KDTree ENVELOPE:</span>
-        <span id="headerClearanceStatus" style="color:var(--accent-emerald); font-weight:600;">32.0m (100% CLEAR)</span>
+        <span>Corridor ENVELOPE:</span>
+        <span id="headerClearanceStatus" style="color:var(--accent-emerald); font-weight:600;">Awaiting audit</span>
       </div>
     </div>
 
@@ -71,7 +72,7 @@
           </div>
           <div class="prop-row">
             <span>Anchor Points:</span>
-            <span class="prop-val" id="astSplineCount">6 Keyframes</span>
+            <span class="prop-val" id="astSplineCount">—</span>
           </div>
           <div class="prop-row">
             <span>Track Width:</span>
@@ -127,7 +128,7 @@
             <span class="prop-val" id="valTowerCount">12 Buildings</span>
           </div>
           <div class="prop-row">
-            <span>KDTree Collision Filter:</span>
+            <span>Corridor Collision Filter:</span>
             <span class="prop-val" style="color:var(--accent-emerald);">AUTO-PRUNE</span>
           </div>
         </div>
@@ -160,7 +161,7 @@
           </div>
           <div class="prop-row">
             <span>Target Tick:</span>
-            <span class="prop-val">4.0 ms (240 Hz)</span>
+            <span class="prop-val">4.0 ms budget</span>
           </div>
           <div class="prop-row">
             <span>Layers:</span>
@@ -193,15 +194,15 @@
       <div class="telemetry-hud">
         <div class="hud-item">
           <div class="hud-label">Compile Latency</div>
-          <div class="hud-value" id="hudCompileTime" style="color:var(--accent-emerald);">39.2 ms</div>
+          <div class="hud-value" id="hudCompileTime" style="color:var(--accent-emerald);">—</div>
         </div>
         <div class="hud-item">
           <div class="hud-label">Scene Mesh Count</div>
-          <div class="hud-value" id="hudMeshCount">41 Objects</div>
+          <div class="hud-value" id="hudMeshCount">—</div>
         </div>
         <div class="hud-item">
-          <div class="hud-label">KDTree Clearance</div>
-          <div class="hud-value" id="hudClearance">100.0% Pass</div>
+          <div class="hud-label">Corridor Clearance</div>
+          <div class="hud-value" id="hudClearance">Not audited</div>
         </div>
         <div class="hud-item">
           <div class="hud-label">Shader Recipes</div>
@@ -209,7 +210,7 @@
         </div>
         <div class="hud-item">
           <div class="hud-label">glTF Draco Size</div>
-          <div class="hud-value" id="hudGlbSize">29.7 KB</div>
+          <div class="hud-value" id="hudGlbSize">—</div>
         </div>
       </div>
     </main>
@@ -227,10 +228,10 @@
           <div class="message-bubble msg-agent">
             <div class="msg-agent-header">
               <span>MomentumStudio Orchestrator</span>
-              <span>100% READY</span>
+              <span>LOCAL ENGINE</span>
             </div>
             <div>
-              Welcome, Founder Deevash! Procedural Shader Recipe Engine v1.1 is active. I can synthesize infinite PBR materials (water puddles, Voronoi cracks, rust, neon emission) headlessly in Blender with 0 bytes of disk bloat.
+              Load and edit a world, place modular assets, and compile geometry through the local Blender engine. Shader recipes generate Blender materials; procedural texture detail requires baking or renderer-specific shaders for export.
             </div>
           </div>
         </div>
@@ -240,7 +241,7 @@
           <div class="prompt-chip" data-prompt="Add heavy rain puddles and surface cracks to the highway">🌧️ Synthesize Rain Puddles</div>
           <div class="prompt-chip" data-prompt="Add heavy rust corrosion and grime to megatowers">🔩 Add Rust Corrosion</div>
           <div class="prompt-chip" data-prompt="Boost neon kinetic cyan emission to overdrive">⚡ Neon Overdrive</div>
-          <div class="prompt-chip" data-prompt="Inject obstacle to test KDTree auto-pruning">💥 Test Obstruction Pruning</div>
+          <div class="prompt-chip" data-prompt="Inject obstacle to test Corridor auto-pruning">💥 Test Obstruction Pruning</div>
           <div class="prompt-chip" data-prompt="Widen corridor radius to 45m">📐 Widen Clearance to 45m</div>
         </div>
 

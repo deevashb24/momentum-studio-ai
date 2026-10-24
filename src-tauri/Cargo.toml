@@ -1,0 +1,14 @@
+[package]
+name = "momentum-studio"
+version = "0.2.0"
+description = "MomentumStudio AI desktop workstation"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

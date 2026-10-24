@@ -237,6 +237,7 @@ input[type="range"] {
 /* Center Viewport */
 .viewport-center {
   flex: 1;
+  min-width: 0;
   position: relative;
   background-color: var(--bg-viewport);
   overflow: hidden;

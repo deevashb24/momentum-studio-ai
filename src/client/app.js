@@ -4,6 +4,19 @@
  * interactive OrbitControls, spatial AST inspector, and "Cursor for 3D" agent loop.
  */
 
+// Embedded desktop assets use a loopback API; browser mode stays same-origin.
+const ENGINE_ORIGIN = location.protocol === "http:" || location.protocol === "https:" ? "" : "http://127.0.0.1:8018";
+const engineUrl = path => `${ENGINE_ORIGIN}${path}`;
+const apiFetch = (path, options) => fetch(engineUrl(path), options);
+async function checkEngine() {
+  let connected = false;
+  try { connected = (await apiFetch("/api/v1/health", {signal: AbortSignal.timeout(2000)})).ok; } catch (_) {}
+  document.getElementById("engineStatus").style.display = connected ? "none" : "block";
+  document.getElementById("headerEngineStatus").textContent = connected ? "ENGINE CONNECTED" : "ENGINE OFFLINE";
+}
+checkEngine();
+setInterval(checkEngine, 5000);
+
 // DOM Elements
 const canvas = document.getElementById("canvas3d");
 const hudCompileTime = document.getElementById("hudCompileTime");
@@ -26,6 +39,7 @@ let currentSceneName = "sector_01_cerberus_corridor";
 let wireframeMode = false;
 let scene, camera, renderer, controls, loadedModel = null;
 let corridorEnvelopeMesh = null;
+let physicsGuide = null;
 
 // Initialize Three.js Viewport
 function initThreeJS() {
@@ -41,8 +55,9 @@ function initThreeJS() {
   camera.position.set(0, 75, -120);
 
   renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-  renderer.setSize(width, height);
+  renderer.setSize(width, height, false);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.2;
 
@@ -73,13 +88,14 @@ function initThreeJS() {
   scene.add(gridHelper);
 
   // Resize handler
-  window.addEventListener("resize", () => {
+  const viewportObserver = new ResizeObserver(() => {
     const w = container.clientWidth;
     const h = container.clientHeight;
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    renderer.setSize(w, h);
+    renderer.setSize(w, h, false);
   });
+  viewportObserver.observe(container);
 
   // Render Loop
   function animate() {
@@ -90,13 +106,29 @@ function initThreeJS() {
   animate();
 
   // Load Initial Model
-  loadGlbModel(`/api/v1/build/sector_01.glb`);
+  loadGlbModel(`/api/v1/build/${currentSceneName}.glb`);
 }
 
 // Load Draco-compressed glTF Model
+function frameModel() {
+  if (!loadedModel || !controls) return;
+  const bounds = new THREE.Box3().setFromObject(loadedModel);
+  const center = bounds.getCenter(new THREE.Vector3());
+  const size = bounds.getSize(new THREE.Vector3());
+  const span = Math.max(size.x, size.y, size.z, 50);
+  camera.position.copy(center).add(new THREE.Vector3(span * 0.6, span * 0.4, -span * 0.6));
+  controls.target.copy(center);
+  controls.update();
+}
+
 function loadGlbModel(glbUrl) {
+  physicsGuide = null;
+  apiFetch(glbUrl.split("?")[0].replace(/\.glb$/, ".physics.json")).then(res => res.ok ? res.json() : null).then(data => {
+    physicsGuide = data?.tracks?.[0]?.points || null;
+    renderCorridorEnvelope(parseFloat(sliderClearance.value) || 32.0);
+  }).catch(() => {});
   if (typeof THREE.GLTFLoader === "undefined") {
-    console.warn("GLTFLoader not loaded from CDN, using fallback geometry");
+    console.warn("GLTFLoader unavailable");
     renderFallbackScene();
     return;
   }
@@ -105,12 +137,12 @@ function loadGlbModel(glbUrl) {
 
   if (typeof THREE.DRACOLoader !== "undefined") {
     const dracoLoader = new THREE.DRACOLoader();
-    dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.6/");
+    dracoLoader.setDecoderPath(new URL("vendor/draco/", location.href).href);
     loader.setDRACOLoader(dracoLoader);
   }
 
   loader.load(
-    glbUrl,
+    engineUrl(glbUrl),
     (gltf) => {
       if (loadedModel) scene.remove(loadedModel);
       loadedModel = gltf.scene;
@@ -123,10 +155,14 @@ function loadGlbModel(glbUrl) {
       });
 
       scene.add(loadedModel);
+      let meshCount = 0;
+      loadedModel.traverse(child => { if (child.isMesh) meshCount++; });
+      hudMeshCount.textContent = `${meshCount} Meshes`;
+      frameModel();
       renderCorridorEnvelope(parseFloat(sliderClearance.value) || 32.0);
     },
     (xhr) => {
-      // Progress
+      if (xhr.total) hudGlbSize.textContent = `${(xhr.total / 1024).toFixed(1)} KB`;
     },
     (err) => {
       console.warn("Failed to load GLB:", err);
@@ -139,16 +175,12 @@ function loadGlbModel(glbUrl) {
 function renderCorridorEnvelope(radius) {
   if (corridorEnvelopeMesh) scene.remove(corridorEnvelopeMesh);
 
-  const points = [
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(0, 8, 150),
-    new THREE.Vector3(-18, 14, 300),
-    new THREE.Vector3(22, 10, 480),
-    new THREE.Vector3(0, 18, 650),
-    new THREE.Vector3(0, 24, 850),
-  ];
-
-  const curve = new THREE.CatmullRomCurve3(points);
+  corridorEnvelopeMesh = null;
+  if (!physicsGuide || physicsGuide.length < 2) return;
+  const curve = new THREE.CurvePath();
+  for (let i = 1; i < physicsGuide.length; i++) {
+    curve.add(new THREE.LineCurve3(new THREE.Vector3(...physicsGuide[i-1]), new THREE.Vector3(...physicsGuide[i])));
+  }
   const tubeGeo = new THREE.TubeGeometry(curve, 64, radius, 16, false);
   const tubeMat = new THREE.MeshBasicMaterial({
     color: 0x06b6d4,
@@ -199,16 +231,17 @@ function renderFallbackScene() {
 // Fetch Active Scene AST
 async function fetchSceneAST() {
   try {
-    const res = await fetch(`/api/v1/scenes/${currentSceneName}`);
+    const res = await apiFetch(`/api/v1/scenes/${currentSceneName}`);
     if (res.ok) {
       const ast = await res.json();
       astTextarea.value = JSON.stringify(ast, null, 2);
 
       if (ast.splines && ast.splines[0]) {
         const radius = ast.splines[0].corridor_clearance_radius_m || 32.0;
+        document.getElementById("astSplineCount").textContent = `${ast.splines[0].points.length} Anchors`;
         sliderClearance.value = radius;
         valClearanceRadius.textContent = `${radius}m`;
-        headerClearanceStatus.textContent = `${radius}m (100% CLEAR)`;
+        headerClearanceStatus.textContent = `${radius}m envelope`;
       }
     }
   } catch (err) {
@@ -227,7 +260,7 @@ async function triggerCompilation(injectObstruction = false) {
       rawAst = JSON.parse(astTextarea.value);
     } catch (e) {}
 
-    const res = await fetch("/api/v1/compile", {
+    const res = await apiFetch("/api/v1/compile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -256,7 +289,7 @@ async function triggerCompilation(injectObstruction = false) {
     if (data.auto_pruned_count > 0) {
       appendMessage(
         "agent",
-        `⚠️ <strong>KDTree Corridor Audit Triggered</strong>: Detected ${data.violations_detected} obstruction(s). Auto-pruned ${data.auto_pruned_count} collision objects outside safe envelope!`
+        `⚠️ <strong>Corridor Corridor Audit Triggered</strong>: Detected ${data.violations_detected} obstruction(s). Auto-pruned ${data.auto_pruned_count} collision objects outside safe envelope!`
       );
     } else {
       appendMessage(
@@ -285,7 +318,7 @@ async function sendAgentPrompt() {
   btnSendPrompt.disabled = true;
 
   try {
-    const res = await fetch("/api/v1/agent/prompt", {
+    const res = await apiFetch("/api/v1/agent/prompt", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -332,16 +365,14 @@ function appendMessage(sender, text) {
   bubble.className = `message-bubble ${sender === "user" ? "msg-user" : "msg-agent"}`;
 
   if (sender === "agent") {
-    bubble.innerHTML = `
-      <div class="msg-agent-header">
-        <span>MomentumStudio Orchestrator</span>
-        <span>${new Date().toLocaleTimeString()}</span>
-      </div>
-      <div>${text}</div>
-    `;
-  } else {
-    bubble.innerHTML = `<div>${text}</div>`;
+    const header = document.createElement("div");
+    header.className = "msg-agent-header";
+    header.textContent = `MomentumStudio Orchestrator · ${new Date().toLocaleTimeString()}`;
+    bubble.appendChild(header);
   }
+  const content = document.createElement("div");
+  content.textContent = sender === "agent" ? text.replace(/<\/?strong>/g, "") : text;
+  bubble.appendChild(content);
 
   chatStream.appendChild(bubble);
   chatStream.scrollTop = chatStream.scrollHeight;
@@ -364,9 +395,7 @@ btnToggleWireframe.addEventListener("click", () => {
 
 btnResetCamera.addEventListener("click", () => {
   if (camera && controls) {
-    camera.position.set(0, 75, -120);
-    controls.target.set(0, 30, 100);
-    controls.update();
+    frameModel();
   }
 });
 
@@ -395,7 +424,7 @@ document.querySelectorAll(".prompt-chip").forEach((chip) => {
 btnSaveAST.addEventListener("click", async () => {
   try {
     const parsed = JSON.parse(astTextarea.value);
-    const res = await fetch("/api/v1/scenes", {
+    const res = await apiFetch("/api/v1/scenes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -421,7 +450,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // Procedural Shader Recipe Handler
 async function applyShaderRecipe(recipeId, targetSlot = "track") {
   try {
-    const res = await fetch("/api/v1/recipes/apply", {
+    const res = await apiFetch("/api/v1/recipes/apply", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -32,3 +32,16 @@ Thumbs.db
 assets/kenney/
 assets/polyhaven/
 assets/ambientcg/
+
+# Native build and Godot generated caches
+src-tauri/target/
+**/.godot/
+*.gd.uid
+src/build/*.physics.glb
+src/build/*.physics.json
+src/build/*.audit.json
+src/build/*report.json
+
+# Generated compiler artifacts (existing tracked samples remain versioned)
+src/build/
+src-tauri/gen/schemas/

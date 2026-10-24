@@ -1,3 +1,5 @@
+> **Phase 2 status:** modular assets, native macOS wrapper and Jolt auditor are implemented. See [development and validation notes](resources/phase2_development.md) for verified results and current Blender/DMG blockers. Historical benchmarks below are not current end-to-end measurements.
+
 # MomentumStudio AI // The Autonomous Agent-Native 3D World Studio
 **"The Cursor for 3D Game Worlds" — Founded by Deevash (Founder & CEO)**
 

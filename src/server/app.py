@@ -10,6 +10,7 @@ import json
 import os
 import subprocess
 import time
+import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -17,7 +18,8 @@ from fastapi import FastAPI, HTTPException, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
+from compiler.spatial_ast import WorldChunk
 
 from compiler.shader_recipes import BUILTIN_SHADER_PRESETS, ProceduralShaderRecipe, ShaderRecipeTypeEnum
 
@@ -26,10 +28,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SCENES_DIR = BASE_DIR / "scenes"
 BUILD_DIR = BASE_DIR / "build"
 CLIENT_DIR = BASE_DIR / "client"
-ASSETS_DIR = BASE_DIR / "assets"
+ASSETS_DIR = BASE_DIR.parent / "assets"
 CATALOG_FILE = ASSETS_DIR / "asset_catalog.json"
 BLENDER_SCRIPT = BASE_DIR / "engine" / "blender_compile_chunk.py"
-BLENDER_BIN = Path("/Applications/Blender.app/Contents/MacOS/Blender")
+BLENDER_BIN = Path(os.environ.get("BLENDER_BIN", "/Applications/Blender.app/Contents/MacOS/Blender"))
 
 SCENES_DIR.mkdir(parents=True, exist_ok=True)
 BUILD_DIR.mkdir(parents=True, exist_ok=True)
@@ -62,19 +64,35 @@ app.add_middleware(
         "http://localhost:8018",
         "http://127.0.0.1:3000",
         "http://localhost:3000",
+        "tauri://localhost",
+        "http://tauri.localhost",
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
+def scene_stem(name: str) -> str:
+    clean = name.removesuffix(".json").removesuffix(".world")
+    if not re.fullmatch(r"[A-Za-z0-9_-]{2,100}", clean):
+        raise HTTPException(status_code=400, detail="Invalid scene name")
+    return clean
+
+
+def validate_world(data):
+    try:
+        return json.loads(WorldChunk.model_validate(data).to_json())
+    except ValidationError as error:
+        raise HTTPException(status_code=422, detail=str(error))
+
+
 # In-memory compile metrics store
 COMPILE_METRICS = {
-    "total_compiles": 1,
-    "successful_compiles": 1,
-    "total_objects_compiled": 41,
+    "total_compiles": 0,
+    "successful_compiles": 0,
+    "total_objects_compiled": 0,
     "total_clearance_violations_pruned": 0,
-    "avg_compile_latency_ms": 39.2,
+    "avg_compile_latency_ms": 0.0,
     "blender_version": "5.2.1 LTS",
     "draco_compression_enabled": True,
     "procedural_shader_recipes_active": len(BUILTIN_SHADER_PRESETS),
@@ -84,8 +102,8 @@ COMPILE_METRICS = {
 # Request & Response Schemas
 class CompileRequest(BaseModel):
     scene_name: str = Field(default="sector_01_cerberus_corridor")
-    inject_obstruction: bool = Field(default=False)
-    min_clearance_m: float = Field(default=32.0, ge=4.0, le=100.0)
+    inject_obstruction: Optional[bool] = None
+    min_clearance_m: Optional[float] = Field(default=None, ge=4.0, le=100.0)
     raw_ast: Optional[Dict[str, Any]] = None
 
 
@@ -135,7 +153,7 @@ async def get_shader_recipes():
 @app.post("/api/v1/recipes/apply")
 async def apply_shader_recipe(req: ApplyRecipeRequest):
     """Applies a procedural shader recipe to a target slot and triggers compilation."""
-    clean_name = req.scene_name.replace(".world", "").replace(".json", "")
+    clean_name = scene_stem(req.scene_name)
     target_json = SCENES_DIR / f"{clean_name}.world.json"
 
     if not target_json.exists():
@@ -199,7 +217,7 @@ async def list_scenes():
 
 @app.get("/api/v1/scenes/{scene_name}")
 async def get_scene(scene_name: str):
-    clean_name = scene_name.replace(".world", "").replace(".json", "")
+    clean_name = scene_stem(scene_name)
     target_file = SCENES_DIR / f"{clean_name}.world.json"
     if not target_file.exists():
         raise HTTPException(status_code=404, detail=f"Scene '{scene_name}' not found")
@@ -209,22 +227,24 @@ async def get_scene(scene_name: str):
 
 @app.post("/api/v1/scenes")
 async def save_scene(req: SceneSaveRequest):
-    clean_name = req.scene_name.replace(".world", "").replace(".json", "")
+    clean_name = scene_stem(req.scene_name)
     target_file = SCENES_DIR / f"{clean_name}.world.json"
+    validated_ast = validate_world(req.ast_data)
     with open(target_file, "w", encoding="utf-8") as f:
-        json.dump(req.ast_data, f, indent=2)
+        json.dump(validated_ast, f, indent=2)
     return {"status": "SAVED", "path": str(target_file), "scene_name": clean_name}
 
 
 @app.post("/api/v1/compile")
 async def trigger_compile(req: CompileRequest):
     start_time = time.perf_counter()
-    clean_name = req.scene_name.replace(".world", "").replace(".json", "")
+    clean_name = scene_stem(req.scene_name)
     target_json = SCENES_DIR / f"{clean_name}.world.json"
 
-    if req.raw_ast:
+    if req.raw_ast is not None:
+        validated_ast = validate_world(req.raw_ast)
         with open(target_json, "w", encoding="utf-8") as f:
-            json.dump(req.raw_ast, f, indent=2)
+            json.dump(validated_ast, f, indent=2)
 
     if not target_json.exists():
         raise HTTPException(status_code=404, detail=f"Scene '{req.scene_name}' does not exist")
@@ -234,11 +254,14 @@ async def trigger_compile(req: CompileRequest):
 
     for zone in world_data.get("procedural_zones", []):
         params = zone.setdefault("parameters", {})
-        params["inject_obstruction_test"] = req.inject_obstruction
+        if req.inject_obstruction is not None:
+            params["inject_obstruction_test"] = req.inject_obstruction
 
     for spline in world_data.get("splines", []):
-        spline["corridor_clearance_radius_m"] = req.min_clearance_m
+        if req.min_clearance_m is not None:
+            spline["corridor_clearance_radius_m"] = req.min_clearance_m
 
+    world_data = validate_world(world_data)
     with open(target_json, "w", encoding="utf-8") as f:
         json.dump(world_data, f, indent=2)
 
@@ -247,6 +270,8 @@ async def trigger_compile(req: CompileRequest):
     cmd = [
         str(BLENDER_BIN),
         "-b",
+        "--python-exit-code",
+        "1",
         "--python",
         str(BLENDER_SCRIPT),
         "--",
@@ -255,8 +280,12 @@ async def trigger_compile(req: CompileRequest):
     ]
 
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        proc = subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=120)
         stdout = proc.stdout
+    except subprocess.TimeoutExpired:
+        raise HTTPException(status_code=504, detail="Blender compilation timed out after 120 seconds")
+    except OSError as e:
+        raise HTTPException(status_code=503, detail=f"Cannot start Blender: {e}")
     except subprocess.CalledProcessError as e:
         raise HTTPException(
             status_code=500,
@@ -270,6 +299,9 @@ async def trigger_compile(req: CompileRequest):
             compile_res = json.loads(token)
         except Exception:
             compile_res = {"raw": token}
+
+    if compile_res.get("status") != "PASSED" or not output_glb.is_file():
+        raise HTTPException(status_code=500, detail="Blender did not produce a valid compilation result")
 
     elapsed_ms = round((time.perf_counter() - start_time) * 1000.0, 2)
 
@@ -290,10 +322,12 @@ async def trigger_compile(req: CompileRequest):
         "violations_detected": compile_res.get("violations_detected", 0),
         "auto_pruned_count": compile_res.get("auto_pruned_count", 0),
         "corridor_clearance_percent": compile_res.get("corridor_clearance_percent", 100.0),
-        "min_clearance_m": req.min_clearance_m,
+        "min_clearance_m": world_data["splines"][0]["corridor_clearance_radius_m"],
         "materials_compiled": compile_res.get("materials_compiled", 4),
         "recipe_types": compile_res.get("recipe_types", []),
         "violations": compile_res.get("violations", []),
+        "modular_instances": compile_res.get("modular_instances", 0),
+        "clearance_method": compile_res.get("clearance_method"),
     }
 
 
@@ -319,7 +353,7 @@ async def process_agent_prompt(req: AgentPromptRequest):
     The 'Cursor for 3D' agent reasoning loop.
     Interprets natural language commands and synthesizes spatial AST and shader recipe modifications.
     """
-    clean_name = req.current_scene_name.replace(".world", "").replace(".json", "")
+    clean_name = scene_stem(req.current_scene_name)
     target_json = SCENES_DIR / f"{clean_name}.world.json"
 
     if not target_json.exists():

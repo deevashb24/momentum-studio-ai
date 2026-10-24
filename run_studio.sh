@@ -26,11 +26,11 @@ fi
 
 # 2. Pre-compile default scene
 echo "[2/4] Verifying default scene compilation..."
-if [ ! -f "$SRC_DIR/build/sector_01.glb" ]; then
-    echo "  ⚡ Compiling initial sector_01.glb..."
-    "$BLENDER_PATH" -b --python "$SRC_DIR/engine/blender_compile_chunk.py" -- \
+if [ ! -f "$SRC_DIR/build/sector_01_cerberus_corridor.glb" ]; then
+    echo "  ⚡ Compiling initial sector_01_cerberus_corridor.glb..."
+    "$BLENDER_PATH" -b --python-exit-code 1 --python "$SRC_DIR/engine/blender_compile_chunk.py" -- \
         "$SRC_DIR/scenes/sector_01_cerberus_corridor.world.json" \
-        "$SRC_DIR/build/sector_01.glb" > /dev/null 2>&1 || true
+        "$SRC_DIR/build/sector_01_cerberus_corridor.glb"
 fi
 echo "  ✅ Draco glTF scene asset verified."
 

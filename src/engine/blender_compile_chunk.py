@@ -5,10 +5,17 @@ Reads .world.json, compiles procedural shader node graphs (Noise, Voronoi, Color
 builds bmesh geometry, audits corridor clearance via mathutils.kdtree, and exports Draco glTF 2.0 chunk.
 """
 
+from __future__ import annotations
+
 import sys
 import os
 import json
 import math
+from pathlib import Path
+import time
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from asset_snapper import AssetSnapper, TrackPath, add, mul, to_blender, intersects_corridor
 
 try:
     import bpy
@@ -32,9 +39,9 @@ def parse_args():
 
 
 def reset_blender_scene():
-    bpy.ops.wm.read_factory_settings(use_empty=True)
-    for col in list(bpy.data.collections):
-        bpy.data.collections.remove(col)
+    # Compile into a dedicated scene; never reset the user's live Blender file.
+    scene = bpy.data.scenes.new("Momentum_Compile")
+    bpy.context.window.scene = scene
 
 
 def build_procedural_shader_recipe(recipe: dict) -> bpy.types.Material:
@@ -50,7 +57,7 @@ def build_procedural_shader_recipe(recipe: dict) -> bpy.types.Material:
     nodes = tree.nodes
     links = tree.links
 
-    bsdf = nodes.get("Principled BSDF")
+    bsdf = next((node for node in nodes if node.type == "BSDF_PRINCIPLED"), None)
     if not bsdf:
         return mat
 
@@ -165,120 +172,120 @@ def compile_world_chunk(world_data: dict, output_glb: str) -> dict:
     mat_neon_cyan = compiled_materials.get("NeonCyberCyan", list(compiled_materials.values())[0])
     mat_neon_orange = compiled_materials.get("NeonCyberOrange", list(compiled_materials.values())[0])
 
-    # 1. Build Spline Track Geometry with Procedural Road Surface
-    splines_data = world_data.get("splines", [])
-    spline_samples = []
-    min_clearance = 32.0
-
-    track_mesh = bpy.data.meshes.new("Track_Surface_Mesh")
-    bm_track = bmesh.new()
-
-    for s_info in splines_data:
-        min_clearance = s_info.get("corridor_clearance_radius_m", 32.0)
-        pts = s_info.get("points", [])
-        road_half_width = 7.0
-        prev_left = None
-        prev_right = None
-
-        for i, pt in enumerate(pts):
-            co = pt["co"]
-            pos = Vector(co)
-            spline_samples.append(pos)
-
-            v_left = bm_track.verts.new(pos + Vector((-road_half_width, 0.0, 0.0)))
-            v_right = bm_track.verts.new(pos + Vector((road_half_width, 0.0, 0.0)))
-
-            if prev_left and prev_right:
-                bm_track.faces.new([prev_left, prev_right, v_right, v_left])
-
-            prev_left = v_left
-            prev_right = v_right
-
-    bm_track.to_mesh(track_mesh)
-    bm_track.free()
-
-    track_obj = bpy.data.objects.new("Track_Surface", track_mesh)
-    track_obj.data.materials.append(mat_track)
-    root_col.objects.link(track_obj)
-
-    # 2. Build Procedural Megatowers with Weathered Concrete & Neon Markers
-    towers_col = bpy.data.collections.new("Procedural_Megatowers")
-    root_col.children.link(towers_col)
-    spawned_objects = 0
-
-    zones = world_data.get("procedural_zones", [])
-    for zone in zones:
-        params = zone.get("parameters", {})
-        lateral_offset = params.get("lateral_clearance_m", 38.5)
-        tower_count = params.get("tower_count_per_side", 8)
-        inject_obstruction = params.get("inject_obstruction_test", False)
-
-        for side in (-1, 1):
-            for t_idx in range(tower_count):
-                z_pos = t_idx * 80.0
-                x_pos = side * (lateral_offset + (t_idx % 3) * 12.0)
-
-                # Intentional obstruction test case
-                if inject_obstruction and t_idx == 2 and side == 1:
-                    x_pos = 12.0  # Violates 32.0m clearance!
-
-                bmesh_tower = bmesh.new()
-                bmesh.ops.create_cube(bmesh_tower, size=1.0)
-                scale_vec = Vector((24.0, 110.0, 32.0))
-                bmesh.ops.scale(bmesh_tower, vec=scale_vec, verts=bmesh_tower.verts)
-
-                mesh_data = bpy.data.meshes.new(f"TowerMesh_{'L' if side < 0 else 'R'}_{t_idx}")
-                bmesh_tower.to_mesh(mesh_data)
-                bmesh_tower.free()
-
-                tower_obj = bpy.data.objects.new(f"Tower_{'L' if side < 0 else 'R'}_{t_idx}", mesh_data)
-                tower_obj.location = (x_pos, 45.0, z_pos)
-                
-                # Assign procedural materials
-                tower_obj.data.materials.append(mat_concrete)
-                if t_idx % 2 == 0:
-                    tower_obj.data.materials.append(mat_neon_cyan if side < 0 else mat_neon_orange)
-
-                towers_col.objects.link(tower_obj)
-                spawned_objects += 1
-
-    # 3. 3D KDTree Spatial Corridor Clearance Audit
-    tree = kdtree.KDTree(len(spline_samples))
-    for idx, pt in enumerate(spline_samples):
-        tree.insert(pt, idx)
-    tree.balance()
-
+    # World AST is Y-up. Convert once to Blender Z-up before glTF export.
+    started = time.perf_counter()
+    paths = {s["id"]: TrackPath(s) for s in world_data["splines"]}
+    corridor_paths = [(paths[s["id"]], s.get("corridor_clearance_radius_m", 32.0))
+                      for s in world_data["splines"] if s.get("enforce_kdtree_audit", True)]
+    modular_col = bpy.data.collections.new("Modular_Assets")
+    root_col.children.link(modular_col)
+    snapper = AssetSnapper(Path(__file__).resolve().parents[2], modular_col)
+    road_objects = []
     violations = []
-    pruned_count = 0
-    for obj in list(towers_col.objects):
-        co, idx, dist = tree.find(obj.location)
-        if dist < min_clearance:
-            violations.append({"name": obj.name, "distance_m": round(dist, 2), "min_clearance_m": min_clearance})
-            bpy.data.objects.remove(obj, do_unlink=True)
-            pruned_count += 1
+    spawned = 0
+    retained_modules = 0
 
-    # 4. Export to Draco-compressed glTF 2.0
+    def safe_group(objects):
+        nonlocal spawned
+        spawned += len(objects)
+        bpy.context.view_layer.update()
+        corners = [obj.matrix_world @ Vector(corner) for obj in objects for corner in obj.bound_box]
+        # Convert back to Y-up for spatial checks.
+        pts = [(p.x, p.z, -p.y) for p in corners]
+        bounds = (tuple(min(p[i] for p in pts) for i in range(3)),
+                  tuple(max(p[i] for p in pts) for i in range(3)))
+        if intersects_corridor(bounds, corridor_paths):
+            for obj in objects:
+                violations.append({"name": obj.name, "reason": "bounds intersect clearance envelope"})
+                bpy.data.objects.remove(obj, do_unlink=True)
+            return False
+        return True
+
+    for spline in world_data["splines"]:
+        path = paths[spline["id"]]
+        verts, faces = [], []
+        for i, point in enumerate(path.points):
+            _, tangent, right = path.at(path.distances[i])
+            verts.extend([to_blender(add(point, mul(right, -7.0))), to_blender(add(point, mul(right, 7.0)))])
+            if i:
+                k = 2*i
+                faces.append((k-2, k, k+1, k-1))
+        mesh = bpy.data.meshes.new("Track_Surface_Mesh")
+        mesh.from_pydata(verts, [], faces)
+        mesh.update()
+        obj = bpy.data.objects.new("Track_Surface_" + spline["id"], mesh)
+        mesh.materials.append(compiled_materials.get(spline.get("material_recipe_id"), mat_track))
+        root_col.objects.link(obj)
+        road_objects.append(obj)
+        spawned += 1
+        # Road-side modules sit beyond the protected envelope, rather than
+        # putting a solid barrier through the driveable corridor.
+        for distance in range(20, int(path.length)-10, 40):
+            point, tangent, right = path.at(distance)
+            for side in (-1, 1):
+                offset = spline.get("corridor_clearance_radius_m", 32.0) + 12.0
+                name = "light-square-double" if distance % 80 == 20 else "construction-barrier"
+                group = snapper.snap("roads", name, add(point, mul(right, side*offset)), tangent, 6.0)
+                retained_modules += int(safe_group(group))
+        # Decorative access apron outside the protected route.
+        point, tangent, right = path.at(20.0)
+        group = snapper.snap("roads", "road-driveway-double", add(point, mul(right, spline.get("corridor_clearance_radius_m", 32.0)+18.0)), tangent, 10.0)
+        retained_modules += int(safe_group(group))
+
+    for zone in world_data.get("procedural_zones", []):
+        if zone.get("generator") != "PROCEDURAL_MEGATOWERS":
+            continue
+        params = zone.get("parameters", {})
+        path = paths[zone["anchor_spline"]]
+        radius = next(s.get("corridor_clearance_radius_m", 32.0) for s in world_data["splines"] if s["id"] == zone["anchor_spline"])
+        count = max(0, min(int(params.get("tower_count_per_side", 8)), 500))
+        width, depth = float(params.get("width_m", 24.0)), float(params.get("depth_m", 32.0))
+        for side in (-1, 1):
+            for i in range(count):
+                point, tangent, right = path.at((i+0.5)*path.length/max(count, 1))
+                height = float(params.get("height_min_m", 90.0)) + (i % 4)*8.0
+                offset = max(float(params.get("lateral_clearance_m", 38.5)), radius + math.hypot(width, depth)/2 + 12.0)
+                if params.get("inject_obstruction_test") and i == 2 and side == 1:
+                    offset = 0.0
+                base = add(point, mul(right, side*offset))
+                bm = bmesh.new()
+                bmesh.ops.create_cube(bm, size=1.0)
+                bmesh.ops.scale(bm, vec=Vector((width, depth, height)), verts=bm.verts)
+                mesh = bpy.data.meshes.new(f"TowerMesh_{zone['id']}_{side}_{i}")
+                bm.to_mesh(mesh)
+                bm.free()
+                tower = bpy.data.objects.new(f"Tower_{zone['id']}_{side}_{i}", mesh)
+                tower.location = to_blender(add(base, (0, height/2, 0)))
+                tower.rotation_euler.z = math.atan2(tangent[0], tangent[2])
+                mesh.materials.append(compiled_materials.get(zone.get("material_recipe_id"), mat_concrete))
+                root_col.objects.link(tower)
+                if safe_group([tower]):
+                    group = snapper.snap("industrial_megatowers", "detail-tank", add(base, (0, height, 0)), tangent, min(width, depth)*0.35)
+                    retained_modules += int(safe_group(group))
+
     os.makedirs(os.path.dirname(os.path.abspath(output_glb)), exist_ok=True)
-    bpy.ops.export_scene.gltf(
-        filepath=output_glb,
-        export_format="GLB",
-        export_draco_mesh_compression_enable=True,
-    )
-
-    file_size = os.path.getsize(output_glb) if os.path.exists(output_glb) else 0
-
+    # Godot does not import Draco-compressed geometry. Export the same scene
+    # without Draco as a separate physics artifact, then the viewport GLB.
+    physics_glb = str(Path(output_glb).with_suffix(".physics.glb"))
+    bpy.ops.export_scene.gltf(filepath=physics_glb, export_format="GLB", export_draco_mesh_compression_enable=False, use_active_scene=True)
+    bpy.ops.export_scene.gltf(filepath=output_glb, export_format="GLB", export_draco_mesh_compression_enable=True, use_active_scene=True)
+    manifest_path = Path(output_glb).with_suffix(".physics.json")
+    manifest_path.write_text(json.dumps({
+        "coordinate_system": "Y_UP_METERS", "glb": Path(physics_glb).name,
+        "tracks": [{"id": sid, "points": path.points, "length_m": path.length} for sid, path in paths.items()],
+        "physics_contracts": world_data.get("physics_contracts", {}),
+    }, indent=2))
     return {
-        "status": "PASSED" if len(violations) == 0 or pruned_count == len(violations) else "FAILED",
-        "objects_spawned": spawned_objects + 1,
-        "objects_retained": (spawned_objects - pruned_count) + 1,
-        "violations_detected": len(violations),
-        "auto_pruned_count": pruned_count,
-        "corridor_clearance_percent": 100.0 if pruned_count == len(violations) else round(((spawned_objects - len(violations)) / spawned_objects) * 100.0, 2),
-        "glb_output_bytes": file_size,
-        "output_path": output_glb,
+        "status": "PASSED", "objects_spawned": spawned,
+        "objects_retained": spawned-len(violations),
+        "violations_detected": len(violations), "auto_pruned_count": len(violations),
+        "corridor_clearance_percent": 100.0, "clearance_method": "conservative_segment_aabb",
+        "modular_instances": retained_modules, "unique_assets_imported": len(snapper.cache),
+        "glb_output_bytes": os.path.getsize(output_glb), "output_path": output_glb,
+        "physics_glb": physics_glb, "physics_manifest": str(manifest_path),
+        "geometry_and_export_ms": round((time.perf_counter()-started)*1000, 2),
         "materials_compiled": len(compiled_materials),
-        "recipe_types": [r.get("recipe_type") for r in recipes_list],
-        "violations": violations,
+        "recipe_types": [r.get("recipe_type") for r in recipes_list], "violations": violations,
     }
 
 
