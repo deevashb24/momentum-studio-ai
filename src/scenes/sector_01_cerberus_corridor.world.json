@@ -8,9 +8,6 @@
       "id": "spline_cerberus_s01",
       "type": "BEZIER",
       "closed": false,
-      "corridor_clearance_radius_m": 32.0,
-      "enforce_kdtree_audit": true,
-      "material_recipe_id": "RainSoakedCyberHighway",
       "points": [
         {
           "co": [
@@ -80,7 +77,10 @@
             960.0
           ]
         }
-      ]
+      ],
+      "corridor_clearance_radius_m": 31.0,
+      "enforce_kdtree_audit": true,
+      "material_recipe_id": "RainSoakedCyberHighway"
     }
   ],
   "procedural_zones": [
@@ -88,27 +88,27 @@
       "id": "zone_megatowers_flanks",
       "anchor_spline": "spline_cerberus_s01",
       "generator": "PROCEDURAL_MEGATOWERS",
-      "material_recipe_id": "BrutalistConcrete",
       "parameters": {
         "lateral_clearance_m": 38.5,
         "tower_count_per_side": 12,
-        "height_min_m": 90.0,
-        "height_max_m": 180.0,
-        "width_m": 34.0,
-        "depth_m": 42.0,
+        "height_min_m": 90,
+        "height_max_m": 180,
+        "width_m": 34,
+        "depth_m": 42,
         "inject_obstruction_test": false
-      }
+      },
+      "material_recipe_id": "BrutalistConcrete"
     },
     {
       "id": "zone_transit_tubes",
       "anchor_spline": "spline_cerberus_s01",
       "generator": "TRANSIT_TUBES",
-      "material_recipe_id": "NeonCyberCyan",
       "parameters": {
         "tube_radius_m": 4.5,
         "interior_rain_culling": true,
         "inject_obstruction_test": false
-      }
+      },
+      "material_recipe_id": "NeonCyberCyan"
     }
   ],
   "materials": [
@@ -142,11 +142,11 @@
         "randomness": 0.9
       },
       "weathering": {
-        "wetness": 0.85,
-        "puddle_coverage": 0.45,
+        "wetness": 0.95,
+        "puddle_coverage": 0.65,
         "rust_intensity": 0.0,
         "grime_factor": 0.15,
-        "crack_density": 0.3
+        "crack_density": 0.4
       },
       "use_triplanar_mapping": true
     },
@@ -263,6 +263,44 @@
         "crack_density": 0.0
       },
       "use_triplanar_mapping": false
+    },
+    {
+      "id": "ErodedRustedMetal",
+      "recipe_type": "ERODED_RUSTED_METAL",
+      "description": "Industrial structural alloy with oxidized reddish-brown rust peeling at edges and seams.",
+      "base_color": {
+        "r": 0.45,
+        "g": 0.48,
+        "b": 0.52,
+        "a": 1.0
+      },
+      "metallic": 0.92,
+      "roughness": 0.35,
+      "emission_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      },
+      "emission_strength": 0.0,
+      "noise": {
+        "scale": 8.0,
+        "detail": 8.0,
+        "roughness": 0.75,
+        "distortion": 0.0
+      },
+      "voronoi": {
+        "scale": 16.0,
+        "randomness": 1.0
+      },
+      "weathering": {
+        "wetness": 0.0,
+        "puddle_coverage": 0.35,
+        "rust_intensity": 0.65,
+        "grime_factor": 0.4,
+        "crack_density": 0.0
+      },
+      "use_triplanar_mapping": true
     }
   ],
   "lighting_budget": {
