@@ -1,6 +1,7 @@
 """
 MomentumStudio AI — Declarative Spatial AST (Abstract Syntax Tree)
 Defines the Pydantic v2 declarative schema (.world.json) for agent-generated 3D game worlds.
+Includes procedural shader recipe definitions for infinite PBR material synthesis.
 """
 
 from __future__ import annotations
@@ -12,6 +13,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+try:
+    from compiler.shader_recipes import ProceduralShaderRecipe, BUILTIN_SHADER_PRESETS
+except ImportError:
+    from shader_recipes import ProceduralShaderRecipe, BUILTIN_SHADER_PRESETS
 
 
 class SplineTypeEnum(str, Enum):
@@ -65,6 +70,7 @@ class SplineTrack(BaseModel):
     points: List[SplinePoint] = Field(..., min_length=2)
     corridor_clearance_radius_m: float = Field(default=32.0, ge=4.0, le=200.0)
     enforce_kdtree_audit: bool = True
+    material_recipe_id: Optional[str] = Field(default="RainSoakedCyberHighway")
 
 
 class ProceduralZone(BaseModel):
@@ -73,6 +79,7 @@ class ProceduralZone(BaseModel):
     anchor_spline: str = Field(..., min_length=3, max_length=80)
     generator: GeneratorTypeEnum = GeneratorTypeEnum.PROCEDURAL_MEGATOWERS
     parameters: Dict[str, Any] = Field(default_factory=dict)
+    material_recipe_id: Optional[str] = Field(default="BrutalistConcrete")
 
 
 class LightingBudget(BaseModel):
@@ -101,6 +108,9 @@ class WorldChunk(BaseModel):
     units: str = Field(default="meters")
     splines: List[SplineTrack] = Field(..., min_length=1)
     procedural_zones: List[ProceduralZone] = Field(default_factory=list)
+    materials: List[ProceduralShaderRecipe] = Field(
+        default_factory=lambda: list(BUILTIN_SHADER_PRESETS.values())
+    )
     lighting_budget: LightingBudget = Field(default_factory=LightingBudget)
     physics_contracts: PhysicsContract = Field(default_factory=PhysicsContract)
 

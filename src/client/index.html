@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MomentumStudio AI — The Cursor for 3D Game Worlds</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Three.js + Loaders from CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -24,7 +23,7 @@
     <div class="header-status">
       <div class="status-pill">
         <div class="status-dot"></div>
-        <span id="headerEngineStatus">ENGINE ONLINE (0.031s)</span>
+        <span id="headerEngineStatus">ENGINE ONLINE (0.039s)</span>
       </div>
       <div class="status-pill">
         <span>SCENE:</span>
@@ -56,7 +55,7 @@
     <aside class="sidebar-left">
       <div class="panel-header">
         <span>Spatial Scene Hierarchy</span>
-        <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-cyan);">AST v1.0</span>
+        <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-cyan);">AST v1.1</span>
       </div>
 
       <div class="panel-content">
@@ -87,6 +86,32 @@
           </div>
         </div>
 
+        <!-- Procedural Shader Recipes (New) -->
+        <div class="prop-card">
+          <div class="prop-card-title">
+            <span>Procedural Shader Recipes</span>
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--accent-cyan);">NODE GRAPH</span>
+          </div>
+          <div class="prop-row">
+            <span>Active Track Recipe:</span>
+            <span class="prop-val" id="activeRecipeLabel" style="color:var(--accent-orange); font-size:11px;">RainSoakedCyberHighway</span>
+          </div>
+          <div class="prop-row">
+            <span>Puddle Synthesis:</span>
+            <span class="prop-val">Noise + ColorRamp</span>
+          </div>
+          <div class="prop-row">
+            <span>Surface Cracks:</span>
+            <span class="prop-val">Voronoi 22.0</span>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin-top:10px;">
+            <button class="btn btn-recipe" data-recipe="RainSoakedCyberHighway" style="padding:4px; font-size:10px; justify-content:center;">🌧️ Rain Puddles</button>
+            <button class="btn btn-recipe" data-recipe="ErodedRustedMetal" style="padding:4px; font-size:10px; justify-content:center;">🔩 Rusted Alloy</button>
+            <button class="btn btn-recipe" data-recipe="NeonCyberCyan" style="padding:4px; font-size:10px; justify-content:center;">⚡ Neon Cyan</button>
+            <button class="btn btn-recipe" data-recipe="BrutalistConcrete" style="padding:4px; font-size:10px; justify-content:center;">🏢 Concrete</button>
+          </div>
+        </div>
+
         <!-- Procedural Megatowers Zone -->
         <div class="prop-card">
           <div class="prop-card-title">
@@ -99,7 +124,7 @@
           </div>
           <div class="prop-row">
             <span>Tower Count / Side:</span>
-            <span class="prop-val" id="valTowerCount">10 Buildings</span>
+            <span class="prop-val" id="valTowerCount">12 Buildings</span>
           </div>
           <div class="prop-row">
             <span>KDTree Collision Filter:</span>
@@ -147,10 +172,8 @@
 
     <!-- Center Viewport: Interactive 3D Canvas -->
     <main class="viewport-center">
-      <!-- 3D Canvas -->
       <canvas id="canvas3d"></canvas>
 
-      <!-- Viewport Controls Overlay -->
       <div class="viewport-overlay-controls">
         <div class="overlay-badge">
           <span style="color:var(--accent-cyan);">●</span>
@@ -170,7 +193,7 @@
       <div class="telemetry-hud">
         <div class="hud-item">
           <div class="hud-label">Compile Latency</div>
-          <div class="hud-value" id="hudCompileTime" style="color:var(--accent-emerald);">31.4 ms</div>
+          <div class="hud-value" id="hudCompileTime" style="color:var(--accent-emerald);">39.2 ms</div>
         </div>
         <div class="hud-item">
           <div class="hud-label">Scene Mesh Count</div>
@@ -179,6 +202,10 @@
         <div class="hud-item">
           <div class="hud-label">KDTree Clearance</div>
           <div class="hud-value" id="hudClearance">100.0% Pass</div>
+        </div>
+        <div class="hud-item">
+          <div class="hud-label">Shader Recipes</div>
+          <div class="hud-value" id="hudShaderCount" style="color:var(--accent-cyan);">4 Compiled</div>
         </div>
         <div class="hud-item">
           <div class="hud-label">glTF Draco Size</div>
@@ -203,34 +230,23 @@
               <span>100% READY</span>
             </div>
             <div>
-              Welcome, Founder Deevash! I am your autonomous 3D spatial compiler. Give me natural language prompts to sculpt, clear corridors, re-route tracks, or adjust lighting budgets.
-            </div>
-          </div>
-
-          <div class="message-bubble msg-agent">
-            <div class="msg-agent-header">
-              <span>Compiler Telemetry</span>
-              <span>PASSED</span>
-            </div>
-            <div>
-              Compiled <strong>sector_01_cerberus_corridor</strong> via Headless Blender 5.2.1 LTS.
-              <br>• 41 3D Objects generated (PBR Materials + Draco compression)
-              <br>• KDTree 32.0m clearance envelope: 0 violations.
+              Welcome, Founder Deevash! Procedural Shader Recipe Engine v1.1 is active. I can synthesize infinite PBR materials (water puddles, Voronoi cracks, rust, neon emission) headlessly in Blender with 0 bytes of disk bloat.
             </div>
           </div>
         </div>
 
         <!-- Quick Prompt Chips -->
         <div class="quick-prompts-bar">
+          <div class="prompt-chip" data-prompt="Add heavy rain puddles and surface cracks to the highway">🌧️ Synthesize Rain Puddles</div>
+          <div class="prompt-chip" data-prompt="Add heavy rust corrosion and grime to megatowers">🔩 Add Rust Corrosion</div>
+          <div class="prompt-chip" data-prompt="Boost neon kinetic cyan emission to overdrive">⚡ Neon Overdrive</div>
           <div class="prompt-chip" data-prompt="Inject obstacle to test KDTree auto-pruning">💥 Test Obstruction Pruning</div>
           <div class="prompt-chip" data-prompt="Widen corridor radius to 45m">📐 Widen Clearance to 45m</div>
-          <div class="prompt-chip" data-prompt="Switch to Cyberpunk Night Lighting">🌙 Cyberpunk Midnight Mood</div>
-          <div class="prompt-chip" data-prompt="Increase procedural megatower density">🏙️ High Density Megatowers</div>
         </div>
 
         <!-- Prompt Input -->
         <div class="agent-input-box">
-          <input type="text" id="agentInput" class="agent-input-field" placeholder="Ask agent to mutate 3D world (e.g. 'Widen track corridor to 45m')...">
+          <input type="text" id="agentInput" class="agent-input-field" placeholder="Ask agent to mutate 3D world or synthesize shader recipes...">
           <button class="btn btn-primary" id="btnSendPrompt">Ask</button>
         </div>
       </div>

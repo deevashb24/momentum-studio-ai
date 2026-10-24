@@ -417,3 +417,38 @@ window.addEventListener("DOMContentLoaded", () => {
   initThreeJS();
   fetchSceneAST();
 });
+
+// Procedural Shader Recipe Handler
+async function applyShaderRecipe(recipeId, targetSlot = "track") {
+  try {
+    const res = await fetch("/api/v1/recipes/apply", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        scene_name: currentSceneName,
+        recipe_id: recipeId,
+        target_slot: targetSlot,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      const label = document.getElementById("activeRecipeLabel");
+      if (label) label.textContent = recipeId;
+      appendMessage(
+        "agent",
+        `🎨 <strong>Procedural Shader Recipe Applied</strong>: Switched ${targetSlot} to <em>${recipeId}</em>. Headless Blender compiled in ${data.compilation.compile_time_ms} ms!`
+      );
+      loadGlbModel(`${data.compilation.glb_url}?t=${Date.now()}`);
+      fetchSceneAST();
+    }
+  } catch (err) {
+    console.error("Failed to apply recipe:", err);
+  }
+}
+
+document.querySelectorAll(".btn-recipe").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const recipe = btn.dataset.recipe;
+    applyShaderRecipe(recipe, recipe === "BrutalistConcrete" ? "towers" : "track");
+  });
+});

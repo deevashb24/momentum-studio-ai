@@ -10,6 +10,7 @@
       "closed": false,
       "corridor_clearance_radius_m": 32.0,
       "enforce_kdtree_audit": true,
+      "material_recipe_id": "RainSoakedCyberHighway",
       "points": [
         {
           "co": [
@@ -87,6 +88,7 @@
       "id": "zone_megatowers_flanks",
       "anchor_spline": "spline_cerberus_s01",
       "generator": "PROCEDURAL_MEGATOWERS",
+      "material_recipe_id": "BrutalistConcrete",
       "parameters": {
         "lateral_clearance_m": 38.5,
         "tower_count_per_side": 12,
@@ -101,6 +103,7 @@
       "id": "zone_transit_tubes",
       "anchor_spline": "spline_cerberus_s01",
       "generator": "TRANSIT_TUBES",
+      "material_recipe_id": "NeonCyberCyan",
       "parameters": {
         "tube_radius_m": 4.5,
         "interior_rain_culling": true,
@@ -108,11 +111,165 @@
       }
     }
   ],
+  "materials": [
+    {
+      "id": "RainSoakedCyberHighway",
+      "recipe_type": "RAIN_SOAKED_ASPHALT",
+      "description": "Dark asphalt road surface with dynamic Voronoi cracks and high-contrast reflective water puddles.",
+      "base_color": {
+        "r": 0.05,
+        "g": 0.06,
+        "b": 0.08,
+        "a": 1.0
+      },
+      "metallic": 0.15,
+      "roughness": 0.65,
+      "emission_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      },
+      "emission_strength": 0.0,
+      "noise": {
+        "scale": 4.5,
+        "detail": 6.0,
+        "roughness": 0.6,
+        "distortion": 0.0
+      },
+      "voronoi": {
+        "scale": 22.0,
+        "randomness": 0.9
+      },
+      "weathering": {
+        "wetness": 0.85,
+        "puddle_coverage": 0.45,
+        "rust_intensity": 0.0,
+        "grime_factor": 0.15,
+        "crack_density": 0.3
+      },
+      "use_triplanar_mapping": true
+    },
+    {
+      "id": "BrutalistConcrete",
+      "recipe_type": "WEATHERED_CONCRETE",
+      "description": "Weathered high-rise concrete with procedural grunge and rain streaking.",
+      "base_color": {
+        "r": 0.2,
+        "g": 0.22,
+        "b": 0.26,
+        "a": 1.0
+      },
+      "metallic": 0.05,
+      "roughness": 0.85,
+      "emission_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+      },
+      "emission_strength": 0.0,
+      "noise": {
+        "scale": 12.0,
+        "detail": 5.0,
+        "roughness": 0.8,
+        "distortion": 0.0
+      },
+      "voronoi": {
+        "scale": 16.0,
+        "randomness": 1.0
+      },
+      "weathering": {
+        "wetness": 0.1,
+        "puddle_coverage": 0.0,
+        "rust_intensity": 0.0,
+        "grime_factor": 0.35,
+        "crack_density": 0.1
+      },
+      "use_triplanar_mapping": true
+    },
+    {
+      "id": "NeonCyberCyan",
+      "recipe_type": "NEON_CYBER_EMISSIVE",
+      "description": "Electric cyan kinetic lighting strip for speedway guides.",
+      "base_color": {
+        "r": 0.02,
+        "g": 0.85,
+        "b": 1.0,
+        "a": 1.0
+      },
+      "metallic": 0.0,
+      "roughness": 0.05,
+      "emission_color": {
+        "r": 0.02,
+        "g": 0.95,
+        "b": 1.0,
+        "a": 1.0
+      },
+      "emission_strength": 5.5,
+      "noise": {
+        "scale": 5.0,
+        "detail": 4.0,
+        "roughness": 0.5,
+        "distortion": 0.0
+      },
+      "voronoi": {
+        "scale": 16.0,
+        "randomness": 1.0
+      },
+      "weathering": {
+        "wetness": 0.0,
+        "puddle_coverage": 0.0,
+        "rust_intensity": 0.0,
+        "grime_factor": 0.0,
+        "crack_density": 0.0
+      },
+      "use_triplanar_mapping": false
+    },
+    {
+      "id": "NeonCyberOrange",
+      "recipe_type": "NEON_CYBER_EMISSIVE",
+      "description": "Hazard orange warning beacons and lane limiters.",
+      "base_color": {
+        "r": 1.0,
+        "g": 0.45,
+        "b": 0.05,
+        "a": 1.0
+      },
+      "metallic": 0.0,
+      "roughness": 0.08,
+      "emission_color": {
+        "r": 1.0,
+        "g": 0.5,
+        "b": 0.08,
+        "a": 1.0
+      },
+      "emission_strength": 4.8,
+      "noise": {
+        "scale": 5.0,
+        "detail": 4.0,
+        "roughness": 0.5,
+        "distortion": 0.0
+      },
+      "voronoi": {
+        "scale": 16.0,
+        "randomness": 1.0
+      },
+      "weathering": {
+        "wetness": 0.0,
+        "puddle_coverage": 0.0,
+        "rust_intensity": 0.0,
+        "grime_factor": 0.0,
+        "crack_density": 0.0
+      },
+      "use_triplanar_mapping": false
+    }
+  ],
   "lighting_budget": {
     "max_pooled_lights": 6,
-    "volumetric_fog_density": 0.0145,
+    "volumetric_fog_density": 0.03,
     "skybox_energy": 0.65,
-    "rain_particle_budget": 14000,
+    "rain_particle_budget": 28000,
     "enable_interior_culling_volumes": true
   },
   "physics_contracts": {

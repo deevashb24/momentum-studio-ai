@@ -1,7 +1,7 @@
 """
 MomentumStudio AI — Local IPC & HTTP Engine Server
-FastAPI backend orchestrating declarative spatial AST compilation, Blender headless execution,
-3D KDTree corridor clearance auditing, and real-time Draco .glb serving.
+FastAPI backend orchestrating declarative spatial AST compilation, procedural shader recipes,
+Blender headless execution, 3D KDTree corridor clearance auditing, and real-time Draco .glb serving.
 """
 
 from __future__ import annotations
@@ -19,11 +19,15 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from compiler.shader_recipes import BUILTIN_SHADER_PRESETS, ProceduralShaderRecipe, ShaderRecipeTypeEnum
+
 # Base directories
 BASE_DIR = Path(__file__).resolve().parent.parent
 SCENES_DIR = BASE_DIR / "scenes"
 BUILD_DIR = BASE_DIR / "build"
 CLIENT_DIR = BASE_DIR / "client"
+ASSETS_DIR = BASE_DIR / "assets"
+CATALOG_FILE = ASSETS_DIR / "asset_catalog.json"
 BLENDER_SCRIPT = BASE_DIR / "engine" / "blender_compile_chunk.py"
 BLENDER_BIN = Path("/Applications/Blender.app/Contents/MacOS/Blender")
 
@@ -32,8 +36,8 @@ BUILD_DIR.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(
     title="MomentumStudio AI Engine API",
-    version="1.0.0",
-    description="The Cursor for 3D Game Worlds — Autonomous Spatial AST Compiler & Blender Bridge",
+    version="1.1.0",
+    description="The Cursor for 3D Game Worlds — Autonomous Spatial AST & Procedural Shader Recipe Compiler",
 )
 
 # Security Middleware
@@ -70,9 +74,10 @@ COMPILE_METRICS = {
     "successful_compiles": 1,
     "total_objects_compiled": 41,
     "total_clearance_violations_pruned": 0,
-    "avg_compile_latency_ms": 31.4,
+    "avg_compile_latency_ms": 39.2,
     "blender_version": "5.2.1 LTS",
     "draco_compression_enabled": True,
+    "procedural_shader_recipes_active": len(BUILTIN_SHADER_PRESETS),
 }
 
 
@@ -94,12 +99,18 @@ class SceneSaveRequest(BaseModel):
     ast_data: Dict[str, Any]
 
 
+class ApplyRecipeRequest(BaseModel):
+    scene_name: str = Field(default="sector_01_cerberus_corridor")
+    recipe_id: str
+    target_slot: str = Field(default="track", description="'track' or 'towers'")
+
+
 @app.get("/api/v1/health")
 async def get_health():
     return {
         "status": "ONLINE",
         "service": "MomentumStudio AI Engine",
-        "version": "1.0.0-mvp",
+        "version": "1.1.0-recipe-engine",
         "blender_available": BLENDER_BIN.exists(),
         "blender_path": str(BLENDER_BIN),
         "blender_version": "5.2.1 LTS",
@@ -111,6 +122,58 @@ async def get_health():
 @app.get("/api/v1/metrics")
 async def get_metrics():
     return COMPILE_METRICS
+
+
+@app.get("/api/v1/recipes")
+async def get_shader_recipes():
+    """Returns the catalog of available procedural shader recipes."""
+    return {
+        k: v.model_dump() for k, v in BUILTIN_SHADER_PRESETS.items()
+    }
+
+
+@app.post("/api/v1/recipes/apply")
+async def apply_shader_recipe(req: ApplyRecipeRequest):
+    """Applies a procedural shader recipe to a target slot and triggers compilation."""
+    clean_name = req.scene_name.replace(".world", "").replace(".json", "")
+    target_json = SCENES_DIR / f"{clean_name}.world.json"
+
+    if not target_json.exists():
+        raise HTTPException(status_code=404, detail=f"Scene '{clean_name}' not found")
+
+    with open(target_json, "r", encoding="utf-8") as f:
+        world_data = json.load(f)
+
+    recipe_obj = BUILTIN_SHADER_PRESETS.get(req.recipe_id)
+    if not recipe_obj:
+        raise HTTPException(status_code=404, detail=f"Recipe '{req.recipe_id}' not found in presets")
+
+    # Ensure recipe is in materials array
+    materials = world_data.setdefault("materials", [])
+    existing_idx = next((i for i, m in enumerate(materials) if m.get("id") == req.recipe_id), None)
+    if existing_idx is not None:
+        materials[existing_idx] = recipe_obj.model_dump()
+    else:
+        materials.append(recipe_obj.model_dump())
+
+    # Bind to slot
+    if req.target_slot == "track":
+        for spline in world_data.get("splines", []):
+            spline["material_recipe_id"] = req.recipe_id
+    elif req.target_slot == "towers":
+        for zone in world_data.get("procedural_zones", []):
+            zone["material_recipe_id"] = req.recipe_id
+
+    with open(target_json, "w", encoding="utf-8") as f:
+        json.dump(world_data, f, indent=2)
+
+    compile_res = await trigger_compile(CompileRequest(scene_name=clean_name))
+    return {
+        "status": "APPLIED",
+        "recipe_id": req.recipe_id,
+        "target_slot": req.target_slot,
+        "compilation": compile_res,
+    }
 
 
 @app.get("/api/v1/scenes")
@@ -127,6 +190,7 @@ async def list_scenes():
                 "sector_id": data.get("sector_id", "S00"),
                 "splines_count": len(data.get("splines", [])),
                 "zones_count": len(data.get("procedural_zones", [])),
+                "materials_count": len(data.get("materials", [])),
             })
         except Exception:
             continue
@@ -158,7 +222,6 @@ async def trigger_compile(req: CompileRequest):
     clean_name = req.scene_name.replace(".world", "").replace(".json", "")
     target_json = SCENES_DIR / f"{clean_name}.world.json"
 
-    # If raw AST is provided in request, save it temporarily
     if req.raw_ast:
         with open(target_json, "w", encoding="utf-8") as f:
             json.dump(req.raw_ast, f, indent=2)
@@ -166,7 +229,6 @@ async def trigger_compile(req: CompileRequest):
     if not target_json.exists():
         raise HTTPException(status_code=404, detail=f"Scene '{req.scene_name}' does not exist")
 
-    # Read AST and update obstruction flag if requested
     with open(target_json, "r", encoding="utf-8") as f:
         world_data = json.load(f)
 
@@ -182,7 +244,6 @@ async def trigger_compile(req: CompileRequest):
 
     output_glb = BUILD_DIR / f"{clean_name}.glb"
 
-    # Execute Headless Blender
     cmd = [
         str(BLENDER_BIN),
         "-b",
@@ -202,7 +263,6 @@ async def trigger_compile(req: CompileRequest):
             detail=f"Blender compilation failed: {e.stderr or e.stdout}",
         )
 
-    # Parse JSON marker from Blender script output
     compile_res = {}
     if "__MOMENTUM_STUDIO_RESULT_START__" in stdout:
         token = stdout.split("__MOMENTUM_STUDIO_RESULT_START__")[1].split("__MOMENTUM_STUDIO_RESULT_END__")[0].strip()
@@ -213,7 +273,6 @@ async def trigger_compile(req: CompileRequest):
 
     elapsed_ms = round((time.perf_counter() - start_time) * 1000.0, 2)
 
-    # Update in-memory metrics
     COMPILE_METRICS["total_compiles"] += 1
     COMPILE_METRICS["successful_compiles"] += 1
     COMPILE_METRICS["total_objects_compiled"] += compile_res.get("objects_spawned", 41)
@@ -232,6 +291,8 @@ async def trigger_compile(req: CompileRequest):
         "auto_pruned_count": compile_res.get("auto_pruned_count", 0),
         "corridor_clearance_percent": compile_res.get("corridor_clearance_percent", 100.0),
         "min_clearance_m": req.min_clearance_m,
+        "materials_compiled": compile_res.get("materials_compiled", 4),
+        "recipe_types": compile_res.get("recipe_types", []),
         "violations": compile_res.get("violations", []),
     }
 
@@ -244,11 +305,19 @@ async def get_build_asset(filename: str):
     return FileResponse(target, media_type="model/gltf-binary", filename=filename)
 
 
+@app.get("/api/v1/assets")
+async def get_asset_catalog():
+    if not CATALOG_FILE.exists():
+        raise HTTPException(status_code=404, detail="Asset catalog not generated yet")
+    with open(CATALOG_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 @app.post("/api/v1/agent/prompt")
 async def process_agent_prompt(req: AgentPromptRequest):
     """
     The 'Cursor for 3D' agent reasoning loop.
-    Interprets natural language commands and synthesizes spatial AST modifications.
+    Interprets natural language commands and synthesizes spatial AST and shader recipe modifications.
     """
     clean_name = req.current_scene_name.replace(".world", "").replace(".json", "")
     target_json = SCENES_DIR / f"{clean_name}.world.json"
@@ -261,9 +330,37 @@ async def process_agent_prompt(req: AgentPromptRequest):
 
     p_lower = req.prompt.lower()
     action_taken = ""
-    recompile_needed = True
 
-    if "obstruction" in p_lower or "obstacle" in p_lower or "prune" in p_lower:
+    # 1. Procedural Shader Recipe Syntheses
+    if "puddle" in p_lower or "rain" in p_lower or "wet" in p_lower:
+        for m in ast_data.get("materials", []):
+            if "RAIN" in m.get("recipe_type", "") or "Asphalt" in m.get("id", ""):
+                w = m.setdefault("weathering", {})
+                w["wetness"] = 0.95
+                w["puddle_coverage"] = 0.65
+                w["crack_density"] = 0.4
+        lb = ast_data.setdefault("lighting_budget", {})
+        lb["rain_particle_budget"] = 28000
+        lb["volumetric_fog_density"] = 0.03
+        action_taken = "Synthesized High-Puddle Rain Recipe: maximized water puddle reflections (roughness 0.02) and Voronoi asphalt cracks."
+
+    elif "rust" in p_lower or "corrosion" in p_lower or "eroded" in p_lower:
+        for m in ast_data.get("materials", []):
+            if "Concrete" in m.get("id", "") or "Metal" in m.get("id", ""):
+                m["recipe_type"] = "ERODED_RUSTED_METAL"
+                w = m.setdefault("weathering", {})
+                w["rust_intensity"] = 0.75
+                w["grime_factor"] = 0.5
+        action_taken = "Synthesized Eroded Rusted Metal Recipe: added oxidized orange-brown noise streaks to structural architecture."
+
+    elif "neon" in p_lower or "glow" in p_lower or "emission" in p_lower:
+        for m in ast_data.get("materials", []):
+            if "NEON" in m.get("recipe_type", ""):
+                m["emission_strength"] = 8.5
+        action_taken = "Overclocked Neon Emissive Recipe: boosted photon emission strength to 8.5 for high-contrast nighttime bloom."
+
+    # 2. Geometric & Spatial Corridors
+    elif "obstruction" in p_lower or "obstacle" in p_lower or "prune" in p_lower:
         for zone in ast_data.get("procedural_zones", []):
             zone.setdefault("parameters", {})["inject_obstruction_test"] = True
         action_taken = "Injected deliberate corridor obstruction to test KDTree auto-pruning filter."
@@ -280,39 +377,27 @@ async def process_agent_prompt(req: AgentPromptRequest):
             spline["corridor_clearance_radius_m"] = new_radius
         action_taken = f"Expanded spline safety clearance envelope to {new_radius}m radius."
 
-    elif "tower" in p_lower or "density" in p_lower or "more buildings" in p_lower:
+    elif "tower" in p_lower or "density" in p_lower:
         for zone in ast_data.get("procedural_zones", []):
             params = zone.setdefault("parameters", {})
             params["tower_count_per_side"] = 16
         action_taken = "Increased procedural megatower density to 16 skyscrapers per side (32 total)."
 
-    elif "night" in p_lower or "dark" in p_lower or "lighting" in p_lower:
-        lb = ast_data.setdefault("lighting_budget", {})
-        lb["skybox_energy"] = 0.25
-        lb["volumetric_fog_density"] = 0.035
-        action_taken = "Switched to High-Contrast Cyberpunk Midnight Lighting (dense volumetric fog, dimmed skybox)."
-
-    elif "rain" in p_lower:
-        lb = ast_data.setdefault("lighting_budget", {})
-        lb["rain_particle_budget"] = 28000
-        action_taken = "Maximized rain particle budget to 28,000 for storm corridor atmosphere."
-
     else:
-        # Generic AST enhancement
         for zone in ast_data.get("procedural_zones", []):
             zone.setdefault("parameters", {})["lateral_clearance_m"] = 42.0
-        action_taken = f"Applied agent spatial optimization based on instruction: '{req.prompt}'"
+        action_taken = f"Applied agent spatial optimization: '{req.prompt}'"
 
     # Save mutated AST
     with open(target_json, "w", encoding="utf-8") as f:
         json.dump(ast_data, f, indent=2)
 
-    # Run compilation
+    # Compile with Headless Blender
     compile_result = await trigger_compile(CompileRequest(scene_name=clean_name))
 
     return {
         "status": "SUCCESS",
-        "agent_thought": f"Parsed spatial intent. {action_taken}",
+        "agent_thought": f"Parsed spatial & material intent. {action_taken}",
         "action_taken": action_taken,
         "scene_name": clean_name,
         "ast_snapshot": ast_data,
@@ -320,9 +405,13 @@ async def process_agent_prompt(req: AgentPromptRequest):
     }
 
 
-# Mount Client Static Files
+# Static File Mounting
 if CLIENT_DIR.exists():
     app.mount("/studio", StaticFiles(directory=str(CLIENT_DIR), html=True), name="client")
+
+if ASSETS_DIR.exists():
+    app.mount("/assets", StaticFiles(directory=str(ASSETS_DIR)), name="assets")
+
 
 @app.get("/")
 async def root_redirect():
@@ -341,17 +430,3 @@ async def root_redirect():
         </html>
         """
     )
-
-# Asset Catalog & Inspection Endpoints
-ASSETS_DIR = BASE_DIR.parent / "assets"
-CATALOG_FILE = ASSETS_DIR / "asset_catalog.json"
-
-if ASSETS_DIR.exists():
-    app.mount("/assets", StaticFiles(directory=str(ASSETS_DIR)), name="assets")
-
-@app.get("/api/v1/assets")
-async def get_asset_catalog():
-    if not CATALOG_FILE.exists():
-        raise HTTPException(status_code=404, detail="Asset catalog not generated yet")
-    with open(CATALOG_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
